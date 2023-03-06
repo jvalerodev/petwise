@@ -22,9 +22,13 @@
   "rules": {
     "semi": ["error", "always"],
     "@typescript-eslint/semi": "off",
+    "object-curly-spacing": ["error", "always"],
+    "@typescript-eslint/explicit-function-return-type": "off",
     "react/jsx-indent": ["error", 2],
     "react/react-in-jsx-scope": "off",
-    "object-curly-spacing": ["error", "always"],
-    "@typescript-eslint/explicit-function-return-type": "off"
+    "jsx-quotes": ["error", "prefer-double"],
+    "react/jsx-closing-tag-location": "error",
+    "react/self-closing-comp": "error",
+    "react/jsx-space-before-closing": ["error", "always"]
   }
 }
