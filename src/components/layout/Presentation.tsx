@@ -1,12 +1,12 @@
 import Image from 'next/image';
-import { MdOutlinePets } from 'react-icons/md';
+import { MdPets as PetIcon } from 'react-icons/md';
 
 const Presentation = () => {
   return (
     <div className="space-y-5">
-      <h1 className="text-white text-6xl font-bold flex items-center justify-center">
+      <h1 className="flex items-center justify-center text-white text-6xl font-bold">
         P
-        <MdOutlinePets className="inline text-5xl" />
+        <PetIcon className="text-5xl" />
         tWise
       </h1>
 

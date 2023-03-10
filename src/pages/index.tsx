@@ -1,6 +1,10 @@
+import Layout from '@/components/layout/Layout';
+
 const Home = () => {
   return (
-    <h1 className="font-bold">PetWise</h1>
+    <Layout>
+      <h1 className="font-bold text-white">PetWise</h1>
+    </Layout>
   );
 };
 
