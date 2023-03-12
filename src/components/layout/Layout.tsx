@@ -1,3 +1,4 @@
+import Header from './Header';
 import Sidebar from './Sidebar';
 
 interface Props {
@@ -9,8 +10,12 @@ const Layout = ({ children }: Props) => {
     <div className="flex">
       <Sidebar />
 
-      <div>
-        {children}
+      <div className="w-full px-10 py-5 bg-gray-100">
+        <Header />
+
+        <main>
+          {children}
+        </main>
       </div>
     </div>
   );

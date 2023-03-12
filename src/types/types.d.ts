@@ -6,3 +6,12 @@ export interface MenuOption {
   Icon: IconType;
   gap?: boolean;
 }
+
+export interface PageTitle {
+  '/': string;
+  '/owners': string;
+  '/pets': string;
+  '/appointments': string;
+  '/reports': string;
+  '/settings': string;
+}
