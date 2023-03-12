@@ -10,7 +10,7 @@ const Sidebar = () => {
   const router = useRouter();
 
   return (
-    <aside className={`${open ? 'w-72' : 'w-20'} h-screen relative px-5 py-8 bg-teal-500 duration-300 shadow-2xl`}>
+    <aside className={`${open ? 'w-56 md:w-72' : 'w-20'} h-screen fixed md:relative px-5 py-8 bg-teal-500 duration-300 shadow-2xl`}>
       <MenuIcon
         className={`absolute bg-white -right-3.5 top-9 p-1 text-teal-500 text-3xl border-2 border-teal-600 rounded-full cursor-pointer ${!open && 'rotate-180'}`}
         onClick={() => setOpen(!open)}
