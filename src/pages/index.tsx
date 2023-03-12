@@ -1,9 +1,10 @@
 import Layout from '@/components/layout/Layout';
+import TopCards from '@/components/TopCards';
 
 const Home = () => {
   return (
     <Layout>
-      <h1 className="font-bold text-white">PetWise</h1>
+      <TopCards />
     </Layout>
   );
 };
