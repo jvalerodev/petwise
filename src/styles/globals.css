@@ -8,4 +8,8 @@
   html {
     font-family: 'Baloo Thambi 2', sans-serif;
   }
+
+  body {
+    background-color: rgb(243, 244, 246);
+  }
 }

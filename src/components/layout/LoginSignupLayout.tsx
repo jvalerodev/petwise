@@ -12,7 +12,7 @@ const LoginSignupLayout = ({ children }: Props) => {
         <Presentation />
       </div>
 
-      <div className="flex-1 flex flex-col items-center justify-center bg-gray-100 px-3">
+      <div className="flex-1 flex flex-col items-center justify-center px-3">
         <h1 className="lg:hidden flex items-center justify-center text-teal-500 text-6xl font-bold mb-5">
           P
           <PetIcon className="text-5xl" />
