@@ -2,7 +2,7 @@ import Header from './Header';
 import Sidebar from './Sidebar';
 
 interface Props {
-  children: JSX.Element
+  children: JSX.Element[]
 }
 
 const Layout = ({ children }: Props) => {
@@ -10,7 +10,7 @@ const Layout = ({ children }: Props) => {
     <div className="flex h-screen">
       <Sidebar />
 
-      <div className="w-full px-10 py-5 bg-gray-100 ml-20 md:ml-0">
+      <div className="w-full px-10 py-5 ml-20 md:ml-0">
         <Header />
 
         <main>
