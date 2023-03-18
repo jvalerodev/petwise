@@ -29,9 +29,18 @@ export const chartOptions: ChartOptions = {
 };
 
 export const newPatients = [
-  { id: 1, pet: 'Hook', owner: 'Mario Paredes', date: '10/03/2023' },
-  { id: 2, pet: 'Redux', owner: 'Laura Cárdenas', date: '07/03/2023' },
-  { id: 3, pet: 'Canelo', owner: 'Pedro Ramírez', date: '05/03/2023' },
-  { id: 4, pet: 'Chaos', owner: 'Martha Quintero', date: '04/03/2023' },
-  { id: 5, pet: 'Tuki', owner: 'Sofía Gómez', date: '04/03/2023' }
+  { id: 12, pet: 'Hook', owner: 'Mario Paredes', date: '10/03/2023' },
+  { id: 34, pet: 'Redux', owner: 'Laura Cárdenas', date: '07/03/2023' },
+  { id: 56, pet: 'Canelo', owner: 'Pedro Ramírez', date: '05/03/2023' },
+  { id: 78, pet: 'Chaos', owner: 'Martha Quintero', date: '04/03/2023' },
+  { id: 90, pet: 'Tuki', owner: 'Sofía Gómez', date: '04/03/2023' }
+];
+
+export const todayAppointments = [
+  { id: 11, pet: 'Maya', owner: 'Leonardo Castillo', hour: '9:00 A.M.' },
+  { id: 22, pet: 'Cass', owner: 'Andrea Contreras', hour: '10:00 A.M.' },
+  { id: 33, pet: 'Charlie', owner: 'Camila Peña', hour: '2:00 P.M.' },
+  { id: 44, pet: 'Charlie', owner: 'Camila Peña', hour: '2:00 P.M.' },
+  { id: 55, pet: 'Charlie', owner: 'Camila Peña', hour: '2:00 P.M.' },
+  { id: 66, pet: 'Charlie', owner: 'Camila Peña', hour: '2:00 P.M.' }
 ];

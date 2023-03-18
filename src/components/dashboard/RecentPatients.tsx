@@ -1,10 +1,10 @@
-import { TbDog } from 'react-icons/tb';
+import { TbDog as DogIcon } from 'react-icons/tb';
 import { newPatients } from '@/utils/data';
 
 const RecentPatients = () => {
   return (
-    <div className="grid gap-2 bg-white p-4 rounded-lg border shadow-sm">
-      <p className="text-gray-600 text-lg font-bold">Pacientes Recientes</p>
+    <div className="h-fit grid gap-2 bg-white p-4 rounded-lg border shadow-sm">
+      <p className="text-gray-600 text-lg font-bold">Pacientes recientes</p>
 
       <div className="bg-gray-300 w-full h-[1px]" />
 
@@ -14,7 +14,7 @@ const RecentPatients = () => {
             <div className="flex justify-between items-center">
               <div className="flex items-center space-x-2 text-gray-600">
                 <span className="p-2 bg-teal-500/20 rounded-lg">
-                  <TbDog className="text-xl" />
+                  <DogIcon className="text-xl" />
                 </span>
 
                 <div>

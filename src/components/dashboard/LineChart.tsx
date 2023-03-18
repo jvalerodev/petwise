@@ -23,7 +23,7 @@ ChartJS.register(
 
 const BarChart = () => {
   return (
-    <div className="w-full md:col-span-2 p-4 bg-white border rounded-lg shadow-sm">
+    <div className="w-full h-[450px] md:col-span-2 p-4 bg-white border rounded-lg shadow-sm">
       <Line data={chartData} options={chartOptions} />
     </div>
   );
