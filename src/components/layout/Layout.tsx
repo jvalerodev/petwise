@@ -2,7 +2,7 @@ import Header from './Header';
 import Sidebar from './Sidebar';
 
 interface Props {
-  children: JSX.Element[]
+  children: React.ReactNode
 }
 
 const Layout = ({ children }: Props) => {

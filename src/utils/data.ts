@@ -44,3 +44,34 @@ export const todayAppointments = [
   { id: 55, pet: 'Charlie', owner: 'Camila Peña', hour: '2:00 P.M.' },
   { id: 66, pet: 'Charlie', owner: 'Camila Peña', hour: '2:00 P.M.' }
 ];
+
+export const owners = [
+  {
+    id: 1,
+    name: 'Jesús Valero',
+    email: 'jvalerodev@gmail.com',
+    phone: '0412-7654801',
+    createdAt: '18/03/2023'
+  },
+  {
+    id: 2,
+    name: 'Carla Soto',
+    email: 'csoto@gmail.com',
+    phone: '0414-9895643',
+    createdAt: '17/03/2023'
+  },
+  {
+    id: 3,
+    name: 'Sebastián Domínguez',
+    email: 'sdominguez@gmail.com',
+    phone: '0424-5747321',
+    createdAt: '15/03/2023'
+  },
+  {
+    id: 4,
+    name: 'Susana Vázquez',
+    email: 'svazquez@gmail.com',
+    phone: '0426-3234511',
+    createdAt: '15/03/2023'
+  }
+];
