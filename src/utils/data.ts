@@ -48,30 +48,85 @@ export const todayAppointments = [
 export const owners = [
   {
     id: 1,
-    name: 'Jesús Valero',
-    email: 'jvalerodev@gmail.com',
+    name: 'Mario Paredes',
+    email: 'mparedes@gmail.com',
     phone: '0412-7654801',
+    createdAt: '10/03/2023'
+  },
+  {
+    id: 2,
+    name: 'Laura Cárdenas',
+    email: 'lcardenas@gmail.com',
+    phone: '0414-9895643',
+    createdAt: '07/03/2023'
+  },
+  {
+    id: 3,
+    name: 'Pedro Ramírez',
+    email: 'pramirez@gmail.com',
+    phone: '0424-5747321',
+    createdAt: '05/03/2023'
+  },
+  {
+    id: 4,
+    name: 'Martha Quintero',
+    email: 'mquintero@gmail.com',
+    phone: '0426-3234511',
+    createdAt: '04/03/2023'
+  },
+  {
+    id: 5,
+    name: 'Sofía Gómez',
+    email: 'sgmomez@gmail.com',
+    phone: '0426-3234511',
+    createdAt: '04/03/2023'
+  }
+];
+
+export const pets = [
+  {
+    id: 1,
+    name: 'Hook',
+    species: 'Perro',
+    age: '2 años',
+    weight: '18 kg',
+    owner: 'Mario Paredes',
     createdAt: '18/03/2023'
   },
   {
     id: 2,
-    name: 'Carla Soto',
-    email: 'csoto@gmail.com',
-    phone: '0414-9895643',
-    createdAt: '17/03/2023'
+    name: 'Redux',
+    species: 'Perro',
+    age: '4 años',
+    weight: '12 kg',
+    owner: 'Laura Cárdenas',
+    createdAt: '07/03/2023'
   },
   {
     id: 3,
-    name: 'Sebastián Domínguez',
-    email: 'sdominguez@gmail.com',
-    phone: '0424-5747321',
-    createdAt: '15/03/2023'
+    name: 'Canelo',
+    species: 'Gato',
+    age: '1 año',
+    weight: '8 kg',
+    owner: 'Pedro Ramírez',
+    createdAt: '05/03/2023'
   },
   {
     id: 4,
-    name: 'Susana Vázquez',
-    email: 'svazquez@gmail.com',
-    phone: '0426-3234511',
-    createdAt: '15/03/2023'
+    name: 'Chaos',
+    species: 'Perro',
+    age: '1 año',
+    weight: '6 kg',
+    owner: 'Martha Quintero',
+    createdAt: '04/03/2023'
+  },
+  {
+    id: 5,
+    name: 'Tuki',
+    species: 'Páyaro',
+    age: '2 años',
+    weight: '1 kg',
+    owner: 'Sofía Gómez',
+    createdAt: '04/03/2023'
   }
 ];
