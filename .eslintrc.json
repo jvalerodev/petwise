@@ -29,6 +29,7 @@
     "@typescript-eslint/restrict-template-expressions": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/member-delimiter-style": "off",
+    "@typescript-eslint/no-misused-promises": "off",
     "jsx-quotes": ["error", "prefer-double"],
     "react/jsx-indent": ["error", 2],
     "react/jsx-indent-props": ["error", 2],
