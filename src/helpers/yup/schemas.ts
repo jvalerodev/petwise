@@ -4,9 +4,9 @@ export const loginSchema = yup.object({
   email: yup
     .string()
     .trim()
-    .required('Email is required.')
-    .email('Invalid email address.'),
-  password: yup.string().required('Password is required.')
+    .required('Ingresa tu correo electrónico')
+    .email('Correo electrónico inválido'),
+  password: yup.string().required('Ingresa tu contraseña')
 });
 
 export const registerSchema = yup.object({
@@ -15,18 +15,10 @@ export const registerSchema = yup.object({
   email: yup
     .string()
     .trim()
-    .required('Email is required.')
-    .email('Invalid email address.'),
+    .required('Ingresa correo electrónico')
+    .email('Correo electrónico inválido'),
   password: yup
     .string()
-    .required('Password is required.')
-    .min(6, 'The password must have at least 6 characters.'),
-  confirmPassword: yup
-    .string()
-    .required('Confirm password is required.')
-    .equals([yup.ref('password')], 'Passwords do not match.'),
-  termsAndConditions: yup
-    .boolean()
-    .required()
-    .isTrue('You must agree to Terms & Conditions.')
+    .required('Ingresa una contraseña')
+    .min(6, 'La contraseña debe tener al menos 6 caracteres')
 });
