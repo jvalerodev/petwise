@@ -1,4 +1,4 @@
-import { FaHome, FaUserCircle, FaDog, FaSignOutAlt } from 'react-icons/fa';
+import { FaHome, FaUserCircle, FaDog } from 'react-icons/fa';
 import { TbReportMedical } from 'react-icons/tb';
 import {
   IoCalendarNumberSharp as CalendarIcon,
@@ -13,8 +13,7 @@ const Menu: MenuOption[] = [
   { title: 'Mascotas', url: '/pets', Icon: FaDog },
   { title: 'Citas', url: '/appointments', Icon: CalendarIcon, gap: true },
   { title: 'Informes', url: '/reports', Icon: TbReportMedical },
-  { title: 'Ajustes', url: '/settings', Icon: SettingsIcon, gap: true },
-  { title: 'Salir', url: '/logout', Icon: FaSignOutAlt }
+  { title: 'Ajustes', url: '/settings', Icon: SettingsIcon, gap: true }
 ];
 
 export default Menu;

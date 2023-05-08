@@ -8,3 +8,8 @@ export const Title: PageTitle = {
   '/reports': 'Informes',
   '/settings': 'Ajustes'
 };
+
+export const API_ENDPOINTS = {
+  LOGIN: '/api/auth/login',
+  LOGOUT: '/api/auth/logout'
+};
