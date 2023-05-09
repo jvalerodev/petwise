@@ -12,8 +12,8 @@ interface Props {
   reset?: UseFormReset<LoginFormValues>;
 }
 
-const useAuth = (props?: Props) => {
-  const reset = props?.reset;
+const useAuth = (props: Props = {}) => {
+  const { reset } = props;
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -29,8 +29,7 @@ const useAuth = (props?: Props) => {
       const user = await AuthService.login(data);
       dispatch(login(user));
       reset?.();
-
-      await router.push('/');
+      router.push('/');
     } catch (error) {
       if (isAxiosError(error)) {
         setError(error.response?.data.error);
@@ -45,7 +44,7 @@ const useAuth = (props?: Props) => {
     try {
       await AuthService.logout();
       dispatch(logout());
-      await router.push('/login');
+      router.push('/login');
     } catch (error) {
       if (isAxiosError(error)) {
         console.log(error.message);

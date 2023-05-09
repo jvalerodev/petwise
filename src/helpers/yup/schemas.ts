@@ -10,8 +10,8 @@ export const loginSchema = yup.object({
 });
 
 export const registerSchema = yup.object({
-  name: yup.string().trim().required('Name is required.'),
-  lastName: yup.string().trim().required('Last name is required.'),
+  name: yup.string().trim().required('Ingresa tu nombre'),
+  lastName: yup.string().trim().required('Ingresa tu apellido'),
   email: yup
     .string()
     .trim()
@@ -20,5 +20,6 @@ export const registerSchema = yup.object({
   password: yup
     .string()
     .required('Ingresa una contraseña')
-    .min(6, 'La contraseña debe tener al menos 6 caracteres')
+    .min(6, 'La contraseña debe tener al menos 6 caracteres'),
+  role: yup.string().required('Selecciona tipo de usuario')
 });

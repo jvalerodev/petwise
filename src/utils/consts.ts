@@ -10,7 +10,11 @@ export const Title: PageTitle = {
 };
 
 export const API_ENDPOINTS = {
+  // Auth
   LOGIN: '/api/auth/login',
   LOGOUT: '/api/auth/logout',
-  GET_USER: '/api/auth/user'
+  GET_USER: '/api/auth/user',
+
+  // Users
+  REGISTER: '/api/users/register'
 };

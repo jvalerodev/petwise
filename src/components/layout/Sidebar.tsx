@@ -11,7 +11,7 @@ const Sidebar = () => {
   const [open, setOpen] = useState(true);
   const router = useRouter();
 
-  const { handleLogout } = useAuth({});
+  const { handleLogout } = useAuth();
 
   return (
     <aside
