@@ -12,6 +12,12 @@ const AuthService = {
 
   logout: async () => {
     await axiosClient.post(API_ENDPOINTS.LOGOUT);
+  },
+
+  getUser: async () => {
+    const res = await axiosClient.get(API_ENDPOINTS.GET_USER);
+    const user: User = res.data;
+    return user;
   }
 };
 

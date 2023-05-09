@@ -32,7 +32,6 @@ const useAuth = (props?: Props) => {
 
       await router.push('/');
     } catch (error) {
-      console.log(error);
       if (isAxiosError(error)) {
         setError(error.response?.data.error);
         removeMessage(setError);
@@ -54,7 +53,16 @@ const useAuth = (props?: Props) => {
     }
   };
 
-  return { loading, error, handleLogin, handleLogout };
+  const handleAuth = async () => {
+    try {
+      const user = await AuthService.getUser();
+      dispatch(login(user));
+    } catch (error) {
+      dispatch(logout());
+    }
+  };
+
+  return { loading, error, handleLogin, handleLogout, handleAuth };
 };
 
 export default useAuth;

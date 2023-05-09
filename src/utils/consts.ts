@@ -11,5 +11,6 @@ export const Title: PageTitle = {
 
 export const API_ENDPOINTS = {
   LOGIN: '/api/auth/login',
-  LOGOUT: '/api/auth/logout'
+  LOGOUT: '/api/auth/logout',
+  GET_USER: '/api/auth/user'
 };
