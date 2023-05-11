@@ -1,4 +1,7 @@
-import { FaRegEdit as EditIcon, FaRegTrashAlt as DeleteIcon } from 'react-icons/fa';
+import {
+  FaRegEdit as EditIcon,
+  FaRegTrashAlt as DeleteIcon
+} from 'react-icons/fa';
 import { pets } from '@/utils/data';
 
 const PetsTable = () => {
@@ -18,7 +21,12 @@ const PetsTable = () => {
 
       <tbody className="divide-y divide-gray-100">
         {pets.map((pet, i) => (
-          <tr key={`pet-${i}`} className={`${i % 2 === 0 ? 'bg-white' : 'bg-gray-100'} text-gray-600 whitespace-nowrap`}>
+          <tr
+            key={`pet-${i}`}
+            className={`${
+              i % 2 === 0 ? 'bg-white' : 'bg-gray-100'
+            } text-gray-600 whitespace-nowrap`}
+          >
             <td className="px-5 py-3">{pet.name}</td>
             <td className="px-5 py-3">{pet.species}</td>
             <td className="px-5 py-3">{pet.age}</td>

@@ -16,5 +16,8 @@ export const API_ENDPOINTS = {
   GET_USER: '/api/auth/user',
 
   // Users
-  REGISTER: '/api/users/register'
+  REGISTER: '/api/users/register',
+
+  // Pets
+  CREATE_PET: '/api/pets/create'
 };

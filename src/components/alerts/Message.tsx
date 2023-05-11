@@ -1,12 +1,13 @@
 interface Props {
   text?: string;
   isError?: boolean;
+  className?: string;
 }
 
-const Message = ({ text, isError }: Props) => {
+const Message = ({ text, isError, className = '' }: Props) => {
   return (
     <p
-      className={`text-center py-3 rounded-md text-white font-bold ${
+      className={`${className} text-center py-2 rounded-md text-white font-bold ${
         isError ? 'bg-red-400/80' : 'bg-green-400'
       }`}
     >

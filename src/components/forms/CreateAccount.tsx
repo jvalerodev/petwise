@@ -38,10 +38,10 @@ const CreateAccountForm = () => {
 
         {result && <Message text={result} />}
 
-        {error && <Message text={error} isError={true} />}
+        {error && <Message text={error} isError />}
 
         <div className="space-y-5">
-          {errors.name && <Message text={errors.name.message} isError={true} />}
+          {errors.name && <Message text={errors.name.message} isError />}
 
           <input
             type="text"
@@ -51,7 +51,7 @@ const CreateAccountForm = () => {
           />
 
           {errors.lastName && (
-            <Message text={errors.lastName.message} isError={true} />
+            <Message text={errors.lastName.message} isError />
           )}
           <input
             type="text"
@@ -60,9 +60,7 @@ const CreateAccountForm = () => {
             {...register('lastName')}
           />
 
-          {errors.email && (
-            <Message text={errors.email.message} isError={true} />
-          )}
+          {errors.email && <Message text={errors.email.message} isError />}
           <input
             type="text"
             placeholder="Correo electrónico"
@@ -71,7 +69,7 @@ const CreateAccountForm = () => {
           />
 
           {errors.password && (
-            <Message text={errors.password.message} isError={true} />
+            <Message text={errors.password.message} isError />
           )}
           <input
             type="password"
@@ -80,7 +78,7 @@ const CreateAccountForm = () => {
             {...register('password')}
           />
 
-          {errors.role && <Message text={errors.role.message} isError={true} />}
+          {errors.role && <Message text={errors.role.message} isError />}
           <select
             className="w-full bg-gray-100 py-3 px-2 text-gray-600 rounded-md outline-teal-500 border-r-[16px] border-r-transparent"
             {...register('role')}

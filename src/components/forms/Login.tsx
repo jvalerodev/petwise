@@ -30,11 +30,11 @@ const LoginForm = () => {
 
           <p className="text-lg text-gray-400">Ingresa tus credenciales.</p>
         </div>
-        {error && <Message text={error} isError={true} />}
+
+        {error && <Message text={error} isError />}
+
         <div className="space-y-5">
-          {errors.email && (
-            <Message text={errors.email.message} isError={true} />
-          )}
+          {errors.email && <Message text={errors.email.message} isError />}
 
           <input
             type="text"
@@ -44,7 +44,7 @@ const LoginForm = () => {
           />
 
           {errors.password && (
-            <Message text={errors.password.message} isError={true} />
+            <Message text={errors.password.message} isError />
           )}
 
           <input
