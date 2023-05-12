@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { type UseFormReset } from 'react-hook-form';
 import { isAxiosError } from 'axios';
 import PetService from '@/serivces/pets';
-import { addPet } from '@/redux/reducer/pets';
+import { addPet, getAllPets } from '@/redux/reducer/pets';
 import { removeMessage } from '@/utils/functions';
 import type { CreatePetFormValues, SelectPets } from '@/types/types';
 
@@ -11,7 +11,7 @@ interface Props {
   reset?: UseFormReset<CreatePetFormValues>;
 }
 
-const usePet = (props: Props = {}) => {
+const usePets = (props: Props = {}) => {
   const { reset } = props;
 
   const { pets } = useSelector((state: SelectPets) => state.pets);
@@ -42,7 +42,20 @@ const usePet = (props: Props = {}) => {
     setLoading(false);
   };
 
-  return { pets, result, error, loading, handleCreatePet };
+  const getPets = async () => {
+    setLoading(true);
+
+    try {
+      const pets = await PetService.getAll();
+      dispatch(getAllPets({ pets }));
+    } catch (error) {
+      console.log(error);
+    }
+
+    setLoading(false);
+  };
+
+  return { pets, result, error, loading, handleCreatePet, getPets };
 };
 
-export default usePet;
+export default usePets;

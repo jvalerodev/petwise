@@ -27,14 +27,19 @@ const Sidebar = () => {
       />
 
       <div className="h-10">
-        <h1 className="flex items-center justify-center text-teal-900 origin-left text-4xl font-bold">
-          <span className={`${!open && 'hidden'} duration-300`}>P</span>
+        <h1 className="flex justify-center">
+          <Link
+            href="/"
+            className="flex items-center justify-center text-teal-900 origin-left text-4xl font-bold"
+          >
+            <span className={`${!open && 'hidden'} duration-300`}>P</span>
 
-          <PetIcon
-            className={`text-3xl duration-300 ${open && 'rotate-[360deg]'}`}
-          />
+            <PetIcon
+              className={`text-3xl duration-300 ${open && 'rotate-[360deg]'}`}
+            />
 
-          <span className={`${!open && 'hidden'} duration-300`}>tWise</span>
+            <span className={`${!open && 'hidden'} duration-300`}>tWise</span>
+          </Link>
         </h1>
       </div>
 

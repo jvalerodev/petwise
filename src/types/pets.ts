@@ -2,10 +2,12 @@ export interface Pet {
   id: number;
   name: string;
   species: string;
+  gender: string;
   age: number;
   weight: number;
   ownerName: string;
-  createdAt: Date;
+  ownerLastName: string;
+  createdAt: string;
 }
 export interface CreatePetFormValues {
   name: string;

@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { createPetSchema } from '@/helpers/yup/schemas';
 import Message from '@/components/alerts/Message';
-import usePet from '@/hooks/usePet';
+import usePets from '@/hooks/usePets';
 import { type CreatePetFormValues } from '@/types/types';
 import LoadingSpinner from '@/components/layout/LoadingSpinner';
 
@@ -17,7 +17,7 @@ const CreatePet = () => {
     defaultValues: { species: '', gender: '' }
   });
 
-  const { result, error, loading, handleCreatePet } = usePet({ reset });
+  const { result, error, loading, handleCreatePet } = usePets({ reset });
 
   return (
     <>
