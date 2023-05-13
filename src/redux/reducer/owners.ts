@@ -11,10 +11,14 @@ const owernsSlice = createSlice({
   reducers: {
     getAllOwners: (state, action: PayloadAction<GetAllOwnersAction>) => {
       state.owners = action.payload.owners;
+    },
+
+    emptyOwners: (state) => {
+      state.owners = [];
     }
   }
 });
 
-export const { getAllOwners } = owernsSlice.actions;
+export const { getAllOwners, emptyOwners } = owernsSlice.actions;
 
 export default owernsSlice.reducer;

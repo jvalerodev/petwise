@@ -15,10 +15,14 @@ const petsSlice = createSlice({
 
     getAllPets: (state, action: PayloadAction<GetAllPetsAction>) => {
       state.pets = action.payload.pets;
+    },
+
+    emptyPets: (state) => {
+      state.pets = [];
     }
   }
 });
 
-export const { addPet, getAllPets } = petsSlice.actions;
+export const { addPet, getAllPets, emptyPets } = petsSlice.actions;
 
 export default petsSlice.reducer;

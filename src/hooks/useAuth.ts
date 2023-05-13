@@ -3,6 +3,8 @@ import { useRouter } from 'next/router';
 import { isAxiosError } from 'axios';
 import { useDispatch } from 'react-redux';
 import { login, logout } from '@/redux/reducer/user';
+import { emptyPets } from '@/redux/reducer/pets';
+import { emptyOwners } from '@/redux/reducer/owners';
 import AuthService from '@/serivces/auth';
 import { removeMessage } from '@/utils/functions';
 import { type UseFormReset } from 'react-hook-form';
@@ -43,7 +45,11 @@ const useAuth = (props: Props = {}) => {
   const handleLogout = async () => {
     try {
       await AuthService.logout();
+
       dispatch(logout());
+      dispatch(emptyPets());
+      dispatch(emptyOwners());
+
       router.push('/login');
     } catch (error) {
       if (isAxiosError(error)) {
