@@ -37,3 +37,9 @@ export const createPetSchema = yup.object({
     .required('Ingresa el correo electrónico')
     .email('Correo electrónico inválido')
 });
+
+export const editPetSchema = yup.object({
+  name: yup.string().trim().required('Ingresa el nombre'),
+  species: yup.string().required('Selecciona la especie'),
+  gender: yup.string().required('Selecciona el género')
+});

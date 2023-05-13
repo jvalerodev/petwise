@@ -1,5 +1,10 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import type { PetsState, AddPetAction, GetAllPetsAction } from '@/types/types';
+import type {
+  PetsState,
+  AddPetAction,
+  GetAllPetsAction,
+  UpdatePetAction
+} from '@/types/types';
 
 const initialState: PetsState = {
   pets: []
@@ -17,12 +22,20 @@ const petsSlice = createSlice({
       state.pets = action.payload.pets;
     },
 
+    updatePet: (state, action: PayloadAction<UpdatePetAction>) => {
+      const { pet: petToUpdate } = action.payload;
+      const index = state.pets.findIndex((pet) => pet.id === petToUpdate.id);
+
+      if (index === -1) return;
+      state.pets[index] = petToUpdate;
+    },
+
     emptyPets: (state) => {
       state.pets = [];
     }
   }
 });
 
-export const { addPet, getAllPets, emptyPets } = petsSlice.actions;
+export const { addPet, getAllPets, updatePet, emptyPets } = petsSlice.actions;
 
 export default petsSlice.reducer;

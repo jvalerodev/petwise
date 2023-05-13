@@ -1,17 +1,33 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {
   FaRegEdit as EditIcon,
   FaRegTrashAlt as DeleteIcon
 } from 'react-icons/fa';
 import usePets from '@/hooks/usePets';
 import LoadingSpinner from '@/components/layout/LoadingSpinner';
+import EditPetModal from '@/components/modals/Modal';
+import EditPetForm from '@/components/forms/EditPet';
+import { type Pet } from '@/types/types';
 
 const PetsTable = () => {
-  const { pets, getPets, loading } = usePets();
+  const [showModal, setShowModal] = useState(false);
+  const [petEdit, setPetEdit] = useState<Pet | null>(null);
+
+  const { pets, loading, getPets } = usePets();
 
   useEffect(() => {
     getPets();
   }, []);
+
+  const handleShowModal = (pet: Pet) => {
+    setPetEdit(pet);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setPetEdit(null);
+    setShowModal(false);
+  };
 
   return (
     <>
@@ -52,7 +68,10 @@ const PetsTable = () => {
               </td>
               <td className="px-5 py-3">
                 <span className="flex justify-center space-x-3 text-lg">
-                  <EditIcon className="cursor-pointer" />
+                  <EditIcon
+                    className="cursor-pointer"
+                    onClick={() => handleShowModal(pet)}
+                  />
                   <DeleteIcon className="cursor-pointer" />
                 </span>
               </td>
@@ -60,6 +79,10 @@ const PetsTable = () => {
           ))}
         </tbody>
       </table>
+
+      <EditPetModal isVisible={showModal} onClose={handleCloseModal}>
+        <EditPetForm pet={petEdit} />
+      </EditPetModal>
     </>
   );
 };

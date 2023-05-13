@@ -3,12 +3,17 @@ import { useSelector, useDispatch } from 'react-redux';
 import { type UseFormReset } from 'react-hook-form';
 import { isAxiosError } from 'axios';
 import PetService from '@/serivces/pets';
-import { addPet, getAllPets } from '@/redux/reducer/pets';
+import { addPet, updatePet, getAllPets } from '@/redux/reducer/pets';
 import { removeMessage } from '@/utils/functions';
-import type { CreatePetFormValues, SelectPets } from '@/types/types';
+import type {
+  CreatePetFormValues,
+  SelectPets,
+  Pet,
+  EditPetFormValues
+} from '@/types/types';
 
 interface Props {
-  reset?: UseFormReset<CreatePetFormValues>;
+  reset?: UseFormReset<CreatePetFormValues | EditPetFormValues>;
 }
 
 const usePets = (props: Props = {}) => {
@@ -55,7 +60,41 @@ const usePets = (props: Props = {}) => {
     setLoading(false);
   };
 
-  return { pets, result, error, loading, handleCreatePet, getPets };
+  const handleUpdatePet = async (
+    petToUpdate: Pet | null,
+    data: EditPetFormValues
+  ) => {
+    setLoading(true);
+
+    try {
+      const pet = await PetService.update(petToUpdate, data);
+      dispatch(updatePet({ pet }));
+      setResult('Mascota actualizada exitosamente');
+
+      reset?.(() => ({
+        name: '',
+        species: '',
+        gender: '',
+        age: 0,
+        weight: 0
+      }));
+      removeMessage(setResult);
+    } catch (error) {
+      console.log(error);
+    }
+
+    setLoading(false);
+  };
+
+  return {
+    pets,
+    result,
+    error,
+    loading,
+    handleCreatePet,
+    getPets,
+    handleUpdatePet
+  };
 };
 
 export default usePets;

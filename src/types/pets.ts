@@ -20,3 +20,11 @@ export interface CreatePetFormValues {
   ownerDni: string;
   ownerEmail: string;
 }
+
+export interface EditPetFormValues {
+  name: string;
+  species: string;
+  gender: string;
+  age: number;
+  weight: number;
+}

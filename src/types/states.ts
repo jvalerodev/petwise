@@ -38,3 +38,5 @@ export interface GetAllOwnersAction {
 export interface SelectOwners {
   owners: OwnersState;
 }
+
+export interface UpdatePetAction extends AddPetAction {}
