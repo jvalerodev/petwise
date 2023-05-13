@@ -1,11 +1,14 @@
 import { useRouter } from 'next/router';
 import { HiOutlineUserCircle as UserIcon } from 'react-icons/hi';
+import useUser from '@/hooks/useUser';
 import { Title } from '@/utils/consts';
 import type { PageTitle } from '@/types/types';
 
 const Header = () => {
   const router = useRouter();
   const url = router.pathname;
+
+  const { user } = useUser();
 
   return (
     <header>
@@ -15,11 +18,15 @@ const Header = () => {
             <UserIcon className="text-3xl" />
           </span>
 
-          <p className="font-bold cursor-pointer">John Doe</p>
+          <p className="font-bold cursor-pointer">
+            {user?.name} {user?.lastName}
+          </p>
         </div>
 
         <div>
-          <h1 className="text-3xl text-teal-500 font-bold">{Title[url as keyof PageTitle]}</h1>
+          <h1 className="text-3xl text-teal-500 font-bold">
+            {Title[url as keyof PageTitle]}
+          </h1>
         </div>
       </div>
     </header>

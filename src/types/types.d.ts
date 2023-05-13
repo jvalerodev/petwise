@@ -20,3 +20,4 @@ export * from './users';
 export * from './states';
 export * from './auth';
 export * from './pets';
+export * from './owners';
