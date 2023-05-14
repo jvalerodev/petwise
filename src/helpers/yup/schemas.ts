@@ -43,3 +43,14 @@ export const editPetSchema = yup.object({
   species: yup.string().required('Selecciona la especie'),
   gender: yup.string().required('Selecciona el género')
 });
+
+export const editOwnerSchema = yup.object({
+  name: yup.string().trim().required('Ingresa el nombre'),
+  lastName: yup.string().required('Ingresa el apellido'),
+  dni: yup.string().required('Ingresa el DNI'),
+  email: yup
+    .string()
+    .trim()
+    .required('Ingresa correo electrónico')
+    .email('Correo electrónico inválido')
+});

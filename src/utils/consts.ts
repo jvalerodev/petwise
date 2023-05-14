@@ -24,5 +24,6 @@ export const API_ENDPOINTS = {
   UPDATE_PET: '/api/pets/update',
 
   // Owners
-  GET_OWNERS: '/api/owners'
+  GET_OWNERS: '/api/owners',
+  UPDATE_OWNER: '/api/owners/update'
 };

@@ -80,7 +80,10 @@ const usePets = (props: Props = {}) => {
       }));
       removeMessage(setResult);
     } catch (error) {
-      console.log(error);
+      if (isAxiosError(error)) {
+        setError(error.response?.data.error);
+        removeMessage(setError);
+      }
     }
 
     setLoading(false);

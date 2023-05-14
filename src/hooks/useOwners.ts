@@ -1,14 +1,22 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getAllOwners } from '@/redux/reducer/owners';
+import { type UseFormReset } from 'react-hook-form';
+import { getAllOwners, updateOwner } from '@/redux/reducer/owners';
 import OwnerService from '@/serivces/owners';
-import { type SelectOwners } from '@/types/types';
+import type { Owner, EditOwnerFormValues, SelectOwners } from '@/types/types';
+import { removeMessage } from '@/utils/functions';
+import { isAxiosError } from 'axios';
 
-const useOwners = () => {
+interface Props {
+  reset?: UseFormReset<EditOwnerFormValues>;
+}
+
+const useOwners = (props: Props = {}) => {
+  const { reset } = props;
   const { owners } = useSelector((state: SelectOwners) => state.owners);
 
-  // const [result, setResult] = useState('');
-  // const [error, setError] = useState('');
+  const [result, setResult] = useState('');
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
@@ -26,7 +34,37 @@ const useOwners = () => {
     setLoading(false);
   };
 
-  return { owners, loading, getOwners };
+  const handleUpdateOwner = async (
+    ownerToUpdate: Owner | null,
+    data: EditOwnerFormValues
+  ) => {
+    setLoading(true);
+
+    try {
+      const owner = await OwnerService.update(ownerToUpdate, data);
+      dispatch(updateOwner({ owner }));
+      setResult('Propietario actualizado exitosamente');
+
+      reset?.(() => ({
+        name: '',
+        lastName: '',
+        dni: '',
+        email: '',
+        phone: ''
+      }));
+
+      removeMessage(setResult);
+    } catch (error) {
+      if (isAxiosError(error)) {
+        setError(error.response?.data.error);
+        removeMessage(setError);
+      }
+    }
+
+    setLoading(false);
+  };
+
+  return { owners, loading, result, error, getOwners, handleUpdateOwner };
 };
 
 export default useOwners;

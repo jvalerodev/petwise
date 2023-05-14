@@ -13,12 +13,22 @@ const owernsSlice = createSlice({
       state.owners = action.payload.owners;
     },
 
+    updateOwner: (state, action) => {
+      const { owner: ownerToUpdate } = action.payload;
+      const index = state.owners.findIndex(
+        (owner) => owner.id === ownerToUpdate.id
+      );
+
+      if (index === -1) return;
+      state.owners[index] = ownerToUpdate;
+    },
+
     emptyOwners: (state) => {
       state.owners = [];
     }
   }
 });
 
-export const { getAllOwners, emptyOwners } = owernsSlice.actions;
+export const { getAllOwners, updateOwner, emptyOwners } = owernsSlice.actions;
 
 export default owernsSlice.reducer;

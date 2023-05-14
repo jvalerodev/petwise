@@ -1,33 +1,33 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { editPetSchema } from '@/helpers/yup/schemas';
+import { editOwnerSchema } from '@/helpers/yup/schemas';
 import Message from '@/components/alerts/Message';
-import usePets from '@/hooks/usePets';
-import type { Pet, EditPetFormValues } from '@/types/types';
+import type { Owner, EditOwnerFormValues } from '@/types/types';
 import LoadingSpinner from '@/components/layout/LoadingSpinner';
+import useOwners from '@/hooks/useOwners';
 
 interface Props {
-  pet: Pet | null;
+  owner: Owner | null;
 }
 
-const EditPetForm = ({ pet }: Props) => {
+const EditPetForm = ({ owner }: Props) => {
   const {
     register,
     formState: { errors },
     handleSubmit,
     reset
-  } = useForm<EditPetFormValues>({
-    resolver: yupResolver(editPetSchema),
+  } = useForm<EditOwnerFormValues>({
+    resolver: yupResolver(editOwnerSchema),
     defaultValues: {
-      name: pet?.name,
-      species: pet?.species,
-      gender: pet?.gender,
-      age: pet?.age,
-      weight: pet?.weight
+      name: owner?.name,
+      lastName: owner?.lastName,
+      dni: owner?.dni,
+      email: owner?.email,
+      phone: owner?.phone
     }
   });
 
-  const { result, error, loading, handleUpdatePet } = usePets({ reset });
+  const { result, error, loading, handleUpdateOwner } = useOwners({ reset });
 
   return (
     <>
@@ -35,12 +35,14 @@ const EditPetForm = ({ pet }: Props) => {
 
       <form
         onSubmit={handleSubmit(
-          async (data) => await handleUpdatePet(pet, data)
+          async (data) => await handleUpdateOwner(owner, data)
         )}
         className="bg-white px-8 py-5 rounded-xl space-y-8 shadow-sm"
       >
         <div className="text-center space-y-2">
-          <h1 className="text-3xl font-bold text-gray-600">Editar mascota</h1>
+          <h1 className="text-3xl font-bold text-gray-600">
+            Editar propietario
+          </h1>
 
           <p className="text-lg text-gray-400">
             Ingresa los datos que deseas modificar.
@@ -58,100 +60,90 @@ const EditPetForm = ({ pet }: Props) => {
                 <Message className="mb-1" text={errors.name.message} isError />
               )}
 
-              <label htmlFor="petName" className="text-gray-600 pt-1">
+              <label htmlFor="name" className="text-gray-600 pt-1">
                 Nombre *
               </label>
 
               <input
-                id="petName"
+                id="name"
                 type="text"
-                placeholder="Hook"
+                placeholder="Carlos"
                 className="bg-gray-100 px-4 py-4 w-full rounded-md text-gray-600 outline-teal-500"
                 {...register('name')}
               />
             </div>
 
             <div className="flex-1">
-              {errors.species && (
+              {errors.lastName && (
                 <Message
                   className="mb-1"
-                  text={errors.species.message}
+                  text={errors.lastName.message}
                   isError
                 />
               )}
 
-              <label htmlFor="species" className="text-gray-600">
-                Especie *
+              <label htmlFor="lastName" className="text-gray-600">
+                Apellido *
               </label>
 
-              <select
-                id="species"
-                className="w-full bg-gray-100 py-[14px] px-2 text-gray-600 rounded-md outline-teal-500 border-r-[16px] border-r-transparent"
-                {...register('species')}
-              >
-                <option value="" disabled>
-                  ---
-                </option>
-
-                <option value="Perro">Perro</option>
-                <option value="Gato">Gato</option>
-              </select>
+              <input
+                id="lastName"
+                type="text"
+                placeholder="Domínguez"
+                className="bg-gray-100 px-4 py-4 w-full rounded-md text-gray-600 outline-teal-500"
+                {...register('lastName')}
+              />
             </div>
           </div>
 
           <div className="flex space-x-5">
             <div className="flex-1">
-              {errors.gender && (
-                <Message
-                  className="mb-1"
-                  text={errors.gender.message}
-                  isError
-                />
+              {errors.dni && (
+                <Message className="mb-1" text={errors.dni.message} isError />
               )}
 
-              <label htmlFor="gender" className="text-gray-600">
-                Género *
-              </label>
-
-              <select
-                id="gender"
-                className="w-full bg-gray-100 py-[14px] px-2 text-gray-600 rounded-md outline-teal-500 border-r-[16px] border-r-transparent"
-                {...register('gender')}
-              >
-                <option value="" disabled>
-                  ---
-                </option>
-
-                <option value="M">M</option>
-                <option value="F">F</option>
-              </select>
-            </div>
-
-            <div className="flex-1">
-              <label htmlFor="age" className="text-gray-600">
-                Edad
+              <label htmlFor="dni" className="text-gray-600">
+                DNI *
               </label>
 
               <input
-                id="age"
+                id="dni"
                 type="text"
-                placeholder="3"
+                placeholder="12345678"
                 className="bg-gray-100 px-4 py-4 w-full rounded-md text-gray-600 outline-teal-500"
-                {...register('age')}
+                {...register('dni')}
               />
             </div>
 
             <div className="flex-1">
-              <label htmlFor="weight" className="text-gray-600">
-                Peso
+              {errors.email && (
+                <Message className="mb-1" text={errors.email.message} isError />
+              )}
+
+              <label htmlFor="email" className="text-gray-600">
+                Correo electrónico *
               </label>
 
               <input
-                id="weight"
+                id="email"
                 type="text"
-                placeholder="8"
+                placeholder="example@mail.com"
                 className="bg-gray-100 px-4 py-4 w-full rounded-md text-gray-600 outline-teal-500"
-                {...register('weight')}
+                {...register('email')}
+              />
+            </div>
+
+            <div className="flex-1">
+              <label htmlFor="phone" className="text-gray-600">
+                Phone
+              </label>
+
+              <input
+                id="phone"
+                type="text"
+                placeholder="87654321"
+                className="bg-gray-100 px-4 py-4 w-full rounded-md text-gray-600 outline-teal-500"
+                {...register('phone')}
               />
             </div>
           </div>

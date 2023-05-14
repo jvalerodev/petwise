@@ -1,14 +1,30 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { FaRegEdit as EditIcon } from 'react-icons/fa';
 import useOwners from '@/hooks/useOwners';
 import LoadingSpinner from '@/components/layout/LoadingSpinner';
+import EditOwnerModal from '@/components/modals/Modal';
+import EditOwnerForm from '@/components/forms/EditOwner';
+import { type Owner } from '@/types/types';
 
 const OwnersTable = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [ownerEdit, setOwnerEdit] = useState<Owner | null>(null);
+
   const { owners, loading, getOwners } = useOwners();
 
   useEffect(() => {
     getOwners();
   }, []);
+
+  const handleShowModal = (owner: Owner) => {
+    setOwnerEdit(owner);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOwnerEdit(null);
+    setShowModal(false);
+  };
 
   return (
     <>
@@ -44,12 +60,19 @@ const OwnersTable = () => {
                 {new Date(owner.createdAt).toLocaleString()}
               </td>
               <td className="px-5 py-3">
-                <EditIcon className="mx-auto text-lg cursor-pointer" />
+                <EditIcon
+                  className="mx-auto text-lg cursor-pointer"
+                  onClick={() => handleShowModal(owner)}
+                />
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+
+      <EditOwnerModal isVisible={showModal} onClose={handleCloseModal}>
+        <EditOwnerForm owner={ownerEdit} />
+      </EditOwnerModal>
     </>
   );
 };
