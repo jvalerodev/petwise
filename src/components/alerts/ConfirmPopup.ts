@@ -1,9 +1,9 @@
 import Swal from 'sweetalert2';
 
-const confirmationPopup = async () => {
+const confirmationPopup = async (text: string) => {
   const response = await Swal.fire({
     title: 'Eliminar',
-    text: '¿Estás seguro que deseas eliminar a esta mascota?',
+    text,
     icon: 'error',
     confirmButtonText: 'Sí',
     confirmButtonColor: '#16A34A',

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import dayjs from 'dayjs';
 import {
   FaRegEdit as EditIcon,
   FaRegTrashAlt as DeleteIcon
@@ -33,7 +34,8 @@ const PetsTable = () => {
   };
 
   const handleDeletePopup = async (petId: string) => {
-    const { isConfirmed } = await confirmationPopup();
+    const text = '¿Estás seguro que deseas eliminar a esta mascota?';
+    const { isConfirmed } = await confirmationPopup(text);
 
     if (isConfirmed) {
       await handleDeletePet(petId);
@@ -76,7 +78,7 @@ const PetsTable = () => {
                 {pet.ownerName} {pet.ownerLastName}
               </td>
               <td className="px-5 py-3">
-                {new Date(pet.createdAt).toLocaleDateString('es-ES')}
+                {dayjs(pet.createdAt).format('DD/MM/YYYY hh:mm a')}
               </td>
               <td className="px-5 py-3">
                 <span className="flex justify-center space-x-3 text-lg">

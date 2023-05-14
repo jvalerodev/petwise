@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { FaRegEdit as EditIcon } from 'react-icons/fa';
+import dayjs from 'dayjs';
 import useOwners from '@/hooks/useOwners';
 import LoadingSpinner from '@/components/layout/LoadingSpinner';
 import EditOwnerModal from '@/components/modals/Modal';
@@ -57,7 +58,7 @@ const OwnersTable = () => {
               <td className="px-5 py-3">{owner.email}</td>
               <td className="px-5 py-3">{owner.phone}</td>
               <td className="px-5 py-3">
-                {new Date(owner.createdAt).toLocaleDateString('es-ES')}
+                {dayjs(owner.createdAt).format('DD/MM/YYYY hh:mm a')}
               </td>
               <td className="px-5 py-3">
                 <EditIcon

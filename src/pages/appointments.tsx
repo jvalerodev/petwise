@@ -14,8 +14,8 @@ const Appointments = () => {
       <SEO title="Citas" />
 
       <Layout>
-        <div className="flex flex-col py-3 space-y-5">
-          <div className="place-self-end">
+        <div className="flex flex-col">
+          <div className="place-self-end mb-5">
             <button
               onClick={() => setShowModal(true)}
               className="flex items-center bg-teal-500 hover:bg-teal-600 px-3 py-2 space-x-1 text-white font-bold rounded-lg duration-200"

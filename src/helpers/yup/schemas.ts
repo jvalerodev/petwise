@@ -60,3 +60,8 @@ export const createAppointmentSchema = yup.object({
   reason: yup.string().required('Ingresa el motivo de la cita'),
   date: yup.string().required('Ingresa fecha de la cita')
 });
+
+export const editAppointmentSchema = yup.object({
+  reason: yup.string().required('Ingresa el motivo de la cita'),
+  date: yup.string().required('Ingresa fecha de la cita')
+});

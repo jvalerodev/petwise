@@ -2,8 +2,10 @@ import axiosClient from '@/config/axios';
 import { API_ENDPOINTS } from '@/utils/consts';
 import type {
   CreateAppointmentFormValues,
-  AppointmentsResponse
-} from '@/types/appointments';
+  AppointmentsResponse,
+  Appointment,
+  EditAppointmentFormValues
+} from '@/types/types';
 
 const AppointmentService = {
   create: async (data: CreateAppointmentFormValues) => {
@@ -16,6 +18,16 @@ const AppointmentService = {
     const res = await axiosClient.get(API_ENDPOINTS.GET_APPOINTMENTS);
     const appointments: AppointmentsResponse = res.data.appointments;
     return appointments;
+  },
+
+  update: async (
+    appointment: Appointment | null,
+    data: EditAppointmentFormValues
+  ) => {
+    await axiosClient.put(
+      `${API_ENDPOINTS.UPDATE_APPOINTMENT}/${appointment?.id}`,
+      data
+    );
   }
 };
 

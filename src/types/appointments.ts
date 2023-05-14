@@ -15,7 +15,12 @@ export interface AppointmentsState {
 export interface CreateAppointmentFormValues {
   petId: string;
   reason: string;
-  date: Date;
+  date: string;
+}
+
+export interface EditAppointmentFormValues {
+  reason: string;
+  date: string;
 }
 
 export interface AppointmentsResponse extends AppointmentsState {}

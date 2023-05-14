@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import { AiOutlineCalendar as CalendarIcon } from 'react-icons/ai';
 import {
   FaRegEdit as EditIcon,
@@ -7,9 +8,10 @@ import type { Appointment } from '@/types/types';
 
 interface Props {
   appointment: Appointment;
+  handleShowModal: (appointment: Appointment) => void;
 }
 
-const AppointmentCard = ({ appointment }: Props) => {
+const AppointmentCard = ({ appointment, handleShowModal }: Props) => {
   return (
     <li className="p-3 bg-gray-50 hover:bg-gray-100 rounded-lg shadow-sm">
       <div className="flex justify-between items-center">
@@ -34,16 +36,17 @@ const AppointmentCard = ({ appointment }: Props) => {
 
             <p className="text-sm">
               <span className="font-bold mr-2">Fecha:</span>
-              <span>
-                {new Date(appointment.date).toLocaleDateString('es-ES')}
-              </span>
+              <span>{dayjs(appointment.date).format('DD/MM/YYYY')}</span>
             </p>
           </div>
         </div>
 
         <div className="md:hidden xl:flex">
           <span className="flex justify-center space-x-3 text-lg text-gray-700">
-            <EditIcon className="cursor-pointer" />
+            <EditIcon
+              onClick={() => handleShowModal(appointment)}
+              className="cursor-pointer"
+            />
 
             <DeleteIcon className="cursor-pointer" />
           </span>

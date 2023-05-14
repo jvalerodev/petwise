@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { type UseFormReset } from 'react-hook-form';
 import type {
   SelectAppointments,
-  CreateAppointmentFormValues
+  CreateAppointmentFormValues,
+  Appointment,
+  EditAppointmentFormValues
 } from '@/types/types';
 import AppointmentService from '@/serivces/appointments';
 import { setAllAppointments } from '@/redux/reducer/appointments';
@@ -60,13 +62,41 @@ const useAppointments = (props: Props = {}) => {
     setLoading(false);
   };
 
+  const handleEditAppointment = async (
+    appointment: Appointment | null,
+    data: EditAppointmentFormValues
+  ) => {
+    setLoading(true);
+
+    try {
+      await AppointmentService.update(appointment, data);
+      await getAppointments();
+      setResult('Cita actualizada exitosamente');
+
+      reset?.(() => ({
+        reason: '',
+        date: ''
+      }));
+
+      removeMessage(setResult);
+    } catch (error) {
+      if (isAxiosError(error)) {
+        setError(error.response?.data.error);
+        removeMessage(setError);
+      }
+    }
+
+    setLoading(false);
+  };
+
   return {
     appointments,
     result,
     error,
     loading,
     handleCreateAppointment,
-    getAppointments
+    getAppointments,
+    handleEditAppointment
   };
 };
 
