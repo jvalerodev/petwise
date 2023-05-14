@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { createAppointmentSchema } from '@/helpers/yup/schemas';
+import usePets from '@/hooks/usePets';
 import useAppointments from '@/hooks/useAppointments';
 import Message from '@/components/alerts/Message';
 import LoadingSpinner from '@/components/layout/LoadingSpinner';
@@ -19,6 +20,7 @@ const CreateAppointment = () => {
     defaultValues: { petId: '' }
   });
 
+  const { pets } = usePets();
   const { result, loading, error, handleCreateAppointment } = useAppointments({
     reset
   });
@@ -62,8 +64,11 @@ const CreateAppointment = () => {
                 ---
               </option>
 
-              <option value="1">Hook - Manuel Gómez</option>
-              <option value="2">Luna - Carla Castillo</option>
+              {pets.map((pet) => (
+                <option key={`${pet.name}-${pet.id}`} value={pet.id}>
+                  {pet.name} - {pet.ownerName} {pet.ownerLastName}
+                </option>
+              ))}
             </select>
           </div>
 
