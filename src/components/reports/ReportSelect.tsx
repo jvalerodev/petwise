@@ -6,8 +6,11 @@ const ReportSelect = () => {
           <label htmlFor="species" className="text-gray-600 font-bold">
             Mascota:
           </label>
-          <select className="w-full bg-white p-2 text-gray-600 rounded-md outline-teal-500 border-r-[16px] border-r-transparent shadow-sm">
-            <option defaultValue="" disabled>
+          <select
+            className="w-full bg-white p-2 text-gray-600 rounded-md outline-teal-500 border-r-[16px] border-r-transparent shadow-sm"
+            defaultValue=""
+          >
+            <option value="" disabled>
               ---
             </option>
             <option value="1">Mascota 1</option>

@@ -13,7 +13,7 @@ import type {
 } from '@/types/types';
 
 interface Props {
-  reset?: UseFormReset<CreatePetFormValues | EditPetFormValues>;
+  reset?: UseFormReset<any>;
 }
 
 const usePets = (props: Props = {}) => {

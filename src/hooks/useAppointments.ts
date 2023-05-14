@@ -1,0 +1,53 @@
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { type UseFormReset } from 'react-hook-form';
+import type {
+  SelectAppointments,
+  CreateAppointmentFormValues
+} from '@/types/types';
+import AppointmentService from '@/serivces/appointments';
+import { setAllAppointments } from '@/redux/reducer/appointments';
+import { removeMessage } from '@/utils/functions';
+import { isAxiosError } from 'axios';
+
+interface Props {
+  reset?: UseFormReset<any>;
+}
+
+const useAppointments = (props: Props = {}) => {
+  const { reset } = props;
+
+  const appointments = useSelector(
+    (state: SelectAppointments) => state.appointments
+  );
+
+  const [result, setResult] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const handleCreateAppointment = async (data: CreateAppointmentFormValues) => {
+    setLoading(true);
+
+    try {
+      const appointmentsSaved = await AppointmentService.create(data);
+
+      dispatch(setAllAppointments(appointmentsSaved));
+      setResult('Cita creada exitosamente');
+      reset?.();
+      removeMessage(setResult);
+    } catch (error) {
+      if (isAxiosError(error)) {
+        setError(error.response?.data.error);
+        removeMessage(setError);
+      }
+    }
+
+    setLoading(false);
+  };
+
+  return { appointments, result, error, loading, handleCreateAppointment };
+};
+
+export default useAppointments;

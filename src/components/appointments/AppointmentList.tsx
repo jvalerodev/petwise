@@ -1,7 +1,10 @@
+import useAppointments from '@/hooks/useAppointments';
 import AppointmentCard from './Appointment';
-import { appointments } from '@/utils/data';
+// import { appointments } from '@/utils/data';
 
 const AppointmentList = () => {
+  const { appointments } = useAppointments();
+
   return (
     <div className="space-y-10">
       <div className="md:col-span-2 grid gap-2 bg-white p-4 rounded-lg border shadow-sm">
@@ -10,7 +13,7 @@ const AppointmentList = () => {
         <div className="bg-gray-300 w-full h-[1px]" />
 
         <ul className="grid md:grid-cols-3 gap-x-5 gap-y-8 py-5">
-          {appointments.slice(0, 3).map((appointment) => (
+          {appointments.today.map((appointment) => (
             <AppointmentCard key={appointment.id} appointment={appointment} />
           ))}
         </ul>
@@ -22,7 +25,7 @@ const AppointmentList = () => {
         <div className="bg-gray-300 w-full h-[1px]" />
 
         <ul className="grid md:grid-cols-3 gap-x-5 gap-y-8 py-5">
-          {appointments.slice(3, 6).map((appointment) => (
+          {appointments.future.map((appointment) => (
             <AppointmentCard key={appointment.id} appointment={appointment} />
           ))}
         </ul>

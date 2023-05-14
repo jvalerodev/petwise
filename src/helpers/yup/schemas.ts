@@ -54,3 +54,9 @@ export const editOwnerSchema = yup.object({
     .required('Ingresa correo electrónico')
     .email('Correo electrónico inválido')
 });
+
+export const createAppointmentSchema = yup.object({
+  petId: yup.string().trim().required('Ingresa la mascota'),
+  reason: yup.string().required('Ingresa el motivo de la cita'),
+  date: yup.string().required('Ingresa fecha de la cita')
+});

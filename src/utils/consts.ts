@@ -26,5 +26,8 @@ export const API_ENDPOINTS = {
 
   // Owners
   GET_OWNERS: '/api/owners',
-  UPDATE_OWNER: '/api/owners/update'
+  UPDATE_OWNER: '/api/owners/update',
+
+  // Appointments
+  CREATE_APPOINTMENT: '/api/appointments/create'
 };

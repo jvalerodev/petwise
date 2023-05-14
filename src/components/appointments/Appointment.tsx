@@ -20,9 +20,11 @@ const AppointmentCard = ({ appointment }: Props) => {
 
           <div className="space-y-1">
             <p className="space-x-2">
-              <span className="font-bold">{appointment.pet}</span>
+              <span className="font-bold">{appointment.petName}</span>
               <span>|</span>
-              <span className="text-sm">{appointment.owner}</span>
+              <span className="text-sm">
+                {appointment.ownerName} {appointment.ownerLastName}
+              </span>
             </p>
 
             <p className="text-sm">
@@ -32,7 +34,9 @@ const AppointmentCard = ({ appointment }: Props) => {
 
             <p className="text-sm">
               <span className="font-bold mr-2">Fecha:</span>
-              <span>{appointment.date}</span>
+              <span>
+                {new Date(appointment.date).toLocaleDateString('es-ES')}
+              </span>
             </p>
           </div>
         </div>

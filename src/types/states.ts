@@ -1,4 +1,4 @@
-import type { User, Pet, Owner } from './types';
+import type { User, Pet, Owner, AppointmentsState } from './types';
 
 // USER
 export interface UserState {
@@ -43,4 +43,8 @@ export interface GetAllOwnersAction {
 
 export interface SelectOwners {
   owners: OwnersState;
+}
+
+export interface SelectAppointments {
+  appointments: AppointmentsState;
 }

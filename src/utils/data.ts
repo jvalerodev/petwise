@@ -192,7 +192,7 @@ export const reports = [
     date: '15-05-2023'
   },
   {
-    id: 1,
+    id: 2,
     pet: 'Hook',
     owner: 'Manuel Gómez',
     diagnosis: 'Infección en el oído',
@@ -201,7 +201,7 @@ export const reports = [
     date: '15-05-2023'
   },
   {
-    id: 1,
+    id: 3,
     pet: 'Hook',
     owner: 'Manuel Gómez',
     diagnosis: 'Infección en el oído',
@@ -210,7 +210,7 @@ export const reports = [
     date: '15-05-2023'
   },
   {
-    id: 1,
+    id: 4,
     pet: 'Hook',
     owner: 'Manuel Gómez',
     diagnosis: 'Infección en el oído',
@@ -219,7 +219,7 @@ export const reports = [
     date: '15-05-2023'
   },
   {
-    id: 1,
+    id: 5,
     pet: 'Hook',
     owner: 'Manuel Gómez',
     diagnosis: 'Infección en el oído',
@@ -228,7 +228,7 @@ export const reports = [
     date: '15-05-2023'
   },
   {
-    id: 1,
+    id: 6,
     pet: 'Hook',
     owner: 'Manuel Gómez',
     diagnosis: 'Infección en el oído',
@@ -237,7 +237,7 @@ export const reports = [
     date: '15-05-2023'
   },
   {
-    id: 1,
+    id: 7,
     pet: 'Hook',
     owner: 'Manuel Gómez',
     diagnosis: 'Infección en el oído',
@@ -246,7 +246,7 @@ export const reports = [
     date: '15-05-2023'
   },
   {
-    id: 1,
+    id: 8,
     pet: 'Hook',
     owner: 'Manuel Gómez',
     diagnosis: 'Infección en el oído',
