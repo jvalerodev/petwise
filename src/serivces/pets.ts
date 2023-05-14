@@ -26,6 +26,10 @@ const PetService = {
     );
     const updatedPet: Pet = res.data.pet;
     return updatedPet;
+  },
+
+  delete: async (id: string) => {
+    await axiosClient.delete(`${API_ENDPOINTS.DELETE_PET}/${id}`);
   }
 };
 

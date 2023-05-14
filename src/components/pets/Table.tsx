@@ -7,13 +7,16 @@ import usePets from '@/hooks/usePets';
 import LoadingSpinner from '@/components/layout/LoadingSpinner';
 import EditPetModal from '@/components/modals/Modal';
 import EditPetForm from '@/components/forms/EditPet';
+import confirmationPopup from '@/components/alerts/ConfirmPopup';
 import { type Pet } from '@/types/types';
+import useOwners from '@/hooks/useOwners';
 
 const PetsTable = () => {
   const [showModal, setShowModal] = useState(false);
   const [petEdit, setPetEdit] = useState<Pet | null>(null);
 
-  const { pets, loading, getPets } = usePets();
+  const { pets, loading, getPets, handleDeletePet } = usePets();
+  const { getOwners } = useOwners();
 
   useEffect(() => {
     getPets();
@@ -27,6 +30,15 @@ const PetsTable = () => {
   const handleCloseModal = () => {
     setPetEdit(null);
     setShowModal(false);
+  };
+
+  const handleDeletePopup = async (petId: string) => {
+    const { isConfirmed } = await confirmationPopup();
+
+    if (isConfirmed) {
+      await handleDeletePet(petId);
+      await getOwners();
+    }
   };
 
   return (
@@ -72,7 +84,10 @@ const PetsTable = () => {
                     className="cursor-pointer"
                     onClick={() => handleShowModal(pet)}
                   />
-                  <DeleteIcon className="cursor-pointer" />
+                  <DeleteIcon
+                    className="cursor-pointer"
+                    onClick={async () => await handleDeletePopup(pet.id)}
+                  />
                 </span>
               </td>
             </tr>

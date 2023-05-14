@@ -3,7 +3,8 @@ import type {
   PetsState,
   AddPetAction,
   GetAllPetsAction,
-  UpdatePetAction
+  UpdatePetAction,
+  DeletePetAction
 } from '@/types/types';
 
 const initialState: PetsState = {
@@ -30,12 +31,21 @@ const petsSlice = createSlice({
       state.pets[index] = petToUpdate;
     },
 
+    deletePet: (state, action: PayloadAction<DeletePetAction>) => {
+      const { id } = action.payload;
+      const index = state.pets.findIndex((pet) => pet.id === id);
+
+      if (index === -1) return;
+      state.pets.splice(index, 1);
+    },
+
     emptyPets: (state) => {
       state.pets = [];
     }
   }
 });
 
-export const { addPet, getAllPets, updatePet, emptyPets } = petsSlice.actions;
+export const { addPet, getAllPets, updatePet, deletePet, emptyPets } =
+  petsSlice.actions;
 
 export default petsSlice.reducer;

@@ -22,6 +22,7 @@ export const API_ENDPOINTS = {
   CREATE_PET: '/api/pets/create',
   GET_PETS: '/api/pets',
   UPDATE_PET: '/api/pets/update',
+  DELETE_PET: '/api/pets/delete',
 
   // Owners
   GET_OWNERS: '/api/owners',

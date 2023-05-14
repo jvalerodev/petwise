@@ -26,6 +26,12 @@ export interface GetAllPetsAction {
   pets: Pet[];
 }
 
+export interface UpdatePetAction extends AddPetAction {}
+
+export interface DeletePetAction {
+  id: string;
+}
+
 // OWNERS
 export interface OwnersState {
   owners: Owner[];
@@ -38,5 +44,3 @@ export interface GetAllOwnersAction {
 export interface SelectOwners {
   owners: OwnersState;
 }
-
-export interface UpdatePetAction extends AddPetAction {}

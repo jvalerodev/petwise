@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { type UseFormReset } from 'react-hook-form';
 import { isAxiosError } from 'axios';
 import PetService from '@/serivces/pets';
-import { addPet, updatePet, getAllPets } from '@/redux/reducer/pets';
+import { addPet, updatePet, deletePet, getAllPets } from '@/redux/reducer/pets';
 import { removeMessage } from '@/utils/functions';
 import type {
   CreatePetFormValues,
@@ -89,6 +89,19 @@ const usePets = (props: Props = {}) => {
     setLoading(false);
   };
 
+  const handleDeletePet = async (petId: string) => {
+    setLoading(true);
+
+    try {
+      await PetService.delete(petId);
+      dispatch(deletePet({ id: petId }));
+    } catch (error) {
+      console.log(error);
+    }
+
+    setLoading(false);
+  };
+
   return {
     pets,
     result,
@@ -96,7 +109,8 @@ const usePets = (props: Props = {}) => {
     loading,
     handleCreatePet,
     getPets,
-    handleUpdatePet
+    handleUpdatePet,
+    handleDeletePet
   };
 };
 
