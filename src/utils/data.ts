@@ -180,3 +180,78 @@ export const appointments = [
     date: '15-05-2023'
   }
 ];
+
+export const reports = [
+  {
+    id: 1,
+    pet: 'Hook',
+    owner: 'Manuel Gómez',
+    diagnosis: 'Infección en el oído',
+    treatment: 'Sporanox',
+    comments: 'Aplicar cada 12 horas por 3 días',
+    date: '15-05-2023'
+  },
+  {
+    id: 1,
+    pet: 'Hook',
+    owner: 'Manuel Gómez',
+    diagnosis: 'Infección en el oído',
+    treatment: 'Sporanox',
+    comments: 'Aplicar cada 12 horas por 3 días',
+    date: '15-05-2023'
+  },
+  {
+    id: 1,
+    pet: 'Hook',
+    owner: 'Manuel Gómez',
+    diagnosis: 'Infección en el oído',
+    treatment: 'Sporanox',
+    comments: 'Aplicar cada 12 horas por 3 días',
+    date: '15-05-2023'
+  },
+  {
+    id: 1,
+    pet: 'Hook',
+    owner: 'Manuel Gómez',
+    diagnosis: 'Infección en el oído',
+    treatment: 'Sporanox',
+    comments: 'Aplicar cada 12 horas por 3 días',
+    date: '15-05-2023'
+  },
+  {
+    id: 1,
+    pet: 'Hook',
+    owner: 'Manuel Gómez',
+    diagnosis: 'Infección en el oído',
+    treatment: 'Sporanox',
+    comments: 'Aplicar cada 12 horas por 3 días',
+    date: '15-05-2023'
+  },
+  {
+    id: 1,
+    pet: 'Hook',
+    owner: 'Manuel Gómez',
+    diagnosis: 'Infección en el oído',
+    treatment: 'Sporanox',
+    comments: 'Aplicar cada 12 horas por 3 días',
+    date: '15-05-2023'
+  },
+  {
+    id: 1,
+    pet: 'Hook',
+    owner: 'Manuel Gómez',
+    diagnosis: 'Infección en el oído',
+    treatment: 'Sporanox',
+    comments: 'Aplicar cada 12 horas por 3 días',
+    date: '15-05-2023'
+  },
+  {
+    id: 1,
+    pet: 'Hook',
+    owner: 'Manuel Gómez',
+    diagnosis: 'Infección en el oído',
+    treatment: 'Sporanox',
+    comments: 'Aplicar cada 12 horas por 3 días',
+    date: '15-05-2023'
+  }
+];

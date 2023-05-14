@@ -22,3 +22,4 @@ export * from './auth';
 export * from './pets';
 export * from './owners';
 export * from './appointments';
+export * from './reports';
