@@ -9,9 +9,14 @@ import type { Appointment } from '@/types/types';
 interface Props {
   appointment: Appointment;
   handleShowModal: (appointment: Appointment) => void;
+  handleDeletePopup: (petId: string) => Promise<void>;
 }
 
-const AppointmentCard = ({ appointment, handleShowModal }: Props) => {
+const AppointmentCard = ({
+  appointment,
+  handleShowModal,
+  handleDeletePopup
+}: Props) => {
   return (
     <li className="p-3 bg-gray-50 hover:bg-gray-100 rounded-lg shadow-sm">
       <div className="flex justify-between items-center">
@@ -48,7 +53,10 @@ const AppointmentCard = ({ appointment, handleShowModal }: Props) => {
               className="cursor-pointer"
             />
 
-            <DeleteIcon className="cursor-pointer" />
+            <DeleteIcon
+              onClick={async () => await handleDeletePopup(appointment.id)}
+              className="cursor-pointer"
+            />
           </span>
         </div>
       </div>

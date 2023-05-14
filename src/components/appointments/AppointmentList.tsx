@@ -3,6 +3,7 @@ import useAppointments from '@/hooks/useAppointments';
 import AppointmentCard from './Appointment';
 import EditAppointmentModal from '@/components/modals/Modal';
 import EditAppointmentForm from '../forms/EditAppointment';
+import confirmationPopup from '@/components/alerts/ConfirmPopup';
 import type { Appointment } from '@/types/types';
 
 const AppointmentList = () => {
@@ -11,7 +12,8 @@ const AppointmentList = () => {
     null
   );
 
-  const { appointments, getAppointments } = useAppointments();
+  const { appointments, getAppointments, handleDeleteAppointment } =
+    useAppointments();
 
   useEffect(() => {
     getAppointments();
@@ -25,6 +27,16 @@ const AppointmentList = () => {
   const handleCloseModal = () => {
     setAppointmentEdit(null);
     setShowModal(false);
+  };
+
+  const handleDeletePopup = async (appointmentId: string) => {
+    const text = '¿Estás seguro que deseas eliminar esta cita?';
+    const { isConfirmed } = await confirmationPopup(text);
+
+    if (isConfirmed) {
+      console.log(appointmentId);
+      await handleDeleteAppointment(appointmentId);
+    }
   };
 
   return (
@@ -41,6 +53,7 @@ const AppointmentList = () => {
                 key={appointment.id}
                 appointment={appointment}
                 handleShowModal={handleShowModal}
+                handleDeletePopup={handleDeletePopup}
               />
             ))}
           </ul>
@@ -57,6 +70,7 @@ const AppointmentList = () => {
                 key={appointment.id}
                 appointment={appointment}
                 handleShowModal={handleShowModal}
+                handleDeletePopup={handleDeletePopup}
               />
             ))}
           </ul>

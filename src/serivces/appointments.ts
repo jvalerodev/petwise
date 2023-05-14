@@ -28,6 +28,9 @@ const AppointmentService = {
       `${API_ENDPOINTS.UPDATE_APPOINTMENT}/${appointment?.id}`,
       data
     );
+  },
+  delete: async (id: string) => {
+    await axiosClient.delete(`${API_ENDPOINTS.DELETE_APPOINTMENT}/${id}`);
   }
 };
 

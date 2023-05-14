@@ -89,6 +89,19 @@ const useAppointments = (props: Props = {}) => {
     setLoading(false);
   };
 
+  const handleDeleteAppointment = async (appointmentId: string) => {
+    setLoading(true);
+
+    try {
+      await AppointmentService.delete(appointmentId);
+      await getAppointments();
+    } catch (error) {
+      console.log(error);
+    }
+
+    setLoading(false);
+  };
+
   return {
     appointments,
     result,
@@ -96,7 +109,8 @@ const useAppointments = (props: Props = {}) => {
     loading,
     handleCreateAppointment,
     getAppointments,
-    handleEditAppointment
+    handleEditAppointment,
+    handleDeleteAppointment
   };
 };
 
