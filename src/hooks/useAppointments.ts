@@ -47,7 +47,27 @@ const useAppointments = (props: Props = {}) => {
     setLoading(false);
   };
 
-  return { appointments, result, error, loading, handleCreateAppointment };
+  const getAppointments = async () => {
+    setLoading(true);
+
+    try {
+      const appointments = await AppointmentService.getAll();
+      dispatch(setAllAppointments(appointments));
+    } catch (error) {
+      console.log(error);
+    }
+
+    setLoading(false);
+  };
+
+  return {
+    appointments,
+    result,
+    error,
+    loading,
+    handleCreateAppointment,
+    getAppointments
+  };
 };
 
 export default useAppointments;

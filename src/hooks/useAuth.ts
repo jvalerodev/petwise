@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { login, logout } from '@/redux/reducer/user';
 import { emptyPets } from '@/redux/reducer/pets';
 import { emptyOwners } from '@/redux/reducer/owners';
+import { emptyAppointments } from '@/redux/reducer/appointments';
 import AuthService from '@/serivces/auth';
 import { removeMessage } from '@/utils/functions';
 import { type UseFormReset } from 'react-hook-form';
@@ -49,6 +50,7 @@ const useAuth = (props: Props = {}) => {
       dispatch(logout());
       dispatch(emptyPets());
       dispatch(emptyOwners());
+      dispatch(emptyAppointments());
 
       router.push('/login');
     } catch (error) {

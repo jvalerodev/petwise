@@ -76,7 +76,7 @@ const PetsTable = () => {
                 {pet.ownerName} {pet.ownerLastName}
               </td>
               <td className="px-5 py-3">
-                {new Date(pet.createdAt).toLocaleString()}
+                {new Date(pet.createdAt).toLocaleDateString('es-ES')}
               </td>
               <td className="px-5 py-3">
                 <span className="flex justify-center space-x-3 text-lg">

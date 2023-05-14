@@ -57,7 +57,7 @@ const OwnersTable = () => {
               <td className="px-5 py-3">{owner.email}</td>
               <td className="px-5 py-3">{owner.phone}</td>
               <td className="px-5 py-3">
-                {new Date(owner.createdAt).toLocaleString()}
+                {new Date(owner.createdAt).toLocaleDateString('es-ES')}
               </td>
               <td className="px-5 py-3">
                 <EditIcon

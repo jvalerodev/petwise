@@ -1,9 +1,13 @@
+import { useEffect } from 'react';
 import useAppointments from '@/hooks/useAppointments';
 import AppointmentCard from './Appointment';
-// import { appointments } from '@/utils/data';
 
 const AppointmentList = () => {
-  const { appointments } = useAppointments();
+  const { appointments, getAppointments } = useAppointments();
+
+  useEffect(() => {
+    getAppointments();
+  }, []);
 
   return (
     <div className="space-y-10">

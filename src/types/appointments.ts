@@ -18,6 +18,6 @@ export interface CreateAppointmentFormValues {
   date: Date;
 }
 
-export interface CreateAppointmentResponse extends AppointmentsState {}
+export interface AppointmentsResponse extends AppointmentsState {}
 
 export interface SetAllAppointmentsAction extends AppointmentsState {}
