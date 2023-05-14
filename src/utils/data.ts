@@ -135,3 +135,48 @@ export const pets = [
     createdAt: '04/03/2023'
   }
 ];
+
+export const appointments = [
+  {
+    id: '1',
+    pet: 'Hook',
+    owner: 'Manuel Gómez',
+    reason: 'El perro vomita cuando come',
+    date: '15-05-2023'
+  },
+  {
+    id: '2',
+    pet: 'Hook',
+    owner: 'Manuel Gómez',
+    reason: 'El perro vomita cuando come',
+    date: '15-05-2023'
+  },
+  {
+    id: '3',
+    pet: 'Hook',
+    owner: 'Manuel Gómez',
+    reason: 'El perro vomita cuando come',
+    date: '15-05-2023'
+  },
+  {
+    id: '4',
+    pet: 'Hook',
+    owner: 'Manuel Gómez',
+    reason: 'El perro vomita cuando come',
+    date: '15-05-2023'
+  },
+  {
+    id: '5',
+    pet: 'Hook',
+    owner: 'Manuel Gómez',
+    reason: 'El perro vomita cuando come',
+    date: '15-05-2023'
+  },
+  {
+    id: '6',
+    pet: 'Hook',
+    owner: 'Manuel Gómez',
+    reason: 'El perro vomita cuando come',
+    date: '15-05-2023'
+  }
+];

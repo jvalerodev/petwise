@@ -10,7 +10,7 @@ import type { MenuOption } from '@/types/types';
 const Menu: MenuOption[] = [
   { title: 'Inicio', url: '/', Icon: FaHome },
   { title: 'Mascotas', url: '/pets', Icon: FaDog, gap: true },
-  { title: 'Dueños', url: '/owners', Icon: FaUserCircle },
+  { title: 'Propietarios', url: '/owners', Icon: FaUserCircle },
   { title: 'Citas', url: '/appointments', Icon: CalendarIcon, gap: true },
   { title: 'Informes', url: '/reports', Icon: TbReportMedical },
   { title: 'Ajustes', url: '/settings', Icon: SettingsIcon, gap: true }
