@@ -20,9 +20,11 @@ const MedicalReport = ({ report }: Props) => {
 
           <div className="space-y-1">
             <p className="space-x-2">
-              <span className="font-bold">{report.pet}</span>
+              <span className="font-bold">{report.petName}</span>
               <span>|</span>
-              <span className="text-sm">{report.owner}</span>
+              <span className="text-sm">
+                {report.ownerName} {report.ownerLastName}
+              </span>
             </p>
 
             <p className="text-sm">
@@ -33,6 +35,11 @@ const MedicalReport = ({ report }: Props) => {
             <p className="text-sm">
               <span className="font-bold mr-2">Tratamiento:</span>
               <span>{report.treatment}</span>
+            </p>
+
+            <p className="text-sm">
+              <span className="font-bold mr-2">Indicaciones:</span>
+              <span>{report.indications}</span>
             </p>
 
             <p className="text-sm">

@@ -1,7 +1,11 @@
 import MedicalReport from './MedicalReport';
-import { reports } from '@/utils/data';
+import { type Report } from '@/types/types';
 
-const MedicalReports = () => {
+interface Props {
+  reports: Report[];
+}
+
+const MedicalReports = ({ reports }: Props) => {
   return (
     <div className="py-10">
       <div className="md:col-span-2 grid gap-2 bg-white p-4 rounded-lg border shadow-sm">

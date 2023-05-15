@@ -1,6 +1,10 @@
 import usePets from '@/hooks/usePets';
 
-const ReportSelect = () => {
+interface Props {
+  handleOnChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+}
+
+const ReportSelect = ({ handleOnChange }: Props) => {
   const { pets } = usePets();
 
   return (
@@ -14,6 +18,7 @@ const ReportSelect = () => {
             id="pet"
             className="w-full bg-white p-2 text-gray-600 rounded-md outline-teal-500 border-r-[16px] border-r-transparent shadow-sm"
             defaultValue=""
+            onChange={handleOnChange}
           >
             <option value="" disabled>
               ---

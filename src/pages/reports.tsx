@@ -6,9 +6,17 @@ import ReportSelect from '@/components/reports/ReportSelect';
 import MedicalReports from '@/components/reports/MedicalReports';
 import CreateReportModal from '@/components/modals/Modal';
 import CreateReportForm from '@/components/forms/CreateReport';
+import useReports from '@/hooks/useReports';
 
 const Reports = () => {
   const [showModal, setShowModal] = useState(false);
+
+  const { reports, getReports } = useReports();
+
+  const handleOnChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const petId = e.target.value;
+    await getReports(petId);
+  };
 
   return (
     <>
@@ -16,7 +24,7 @@ const Reports = () => {
 
       <Layout>
         <div className="flex justify-between items-center py-5">
-          <ReportSelect />
+          <ReportSelect handleOnChange={handleOnChange} />
 
           <button
             onClick={() => setShowModal(true)}
@@ -27,7 +35,7 @@ const Reports = () => {
           </button>
         </div>
 
-        <MedicalReports />
+        <MedicalReports reports={reports} />
 
         <CreateReportModal
           isVisible={showModal}

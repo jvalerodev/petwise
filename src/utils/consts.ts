@@ -36,7 +36,7 @@ export const API_ENDPOINTS = {
 
   // REPORTS
   CREATE_REPORT: '/api/reports/create',
-  GET_REPORT: '/api/reports',
+  GET_REPORTS: '/api/reports',
   UPDATE_REPORT: '/api/reports/update',
   DELETE_REPORT: '/api/reports/delete'
 };
