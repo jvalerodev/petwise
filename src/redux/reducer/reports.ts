@@ -19,10 +19,14 @@ const reportsSlice = createSlice({
 
     addReport: (state, action: PayloadAction<AddReportAction>) => {
       state.reports = [...state.reports, action.payload.report];
+    },
+
+    emptyReports: (state) => {
+      state.reports = [];
     }
   }
 });
 
-export const { setAllReports, addReport } = reportsSlice.actions;
+export const { setAllReports, addReport, emptyReports } = reportsSlice.actions;
 
 export default reportsSlice.reducer;

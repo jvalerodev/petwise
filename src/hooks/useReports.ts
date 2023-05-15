@@ -3,7 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { type UseFormReset } from 'react-hook-form';
 import type { CreateReportFormValues, SelectReports } from '@/types/types';
 import ReportService from '@/serivces/reports';
-import { addReport, setAllReports } from '@/redux/reducer/reports';
+import {
+  addReport,
+  setAllReports,
+  emptyReports
+} from '@/redux/reducer/reports';
 import { removeMessage } from '@/utils/functions';
 import { isAxiosError } from 'axios';
 
@@ -55,7 +59,19 @@ const useReports = (props: Props = {}) => {
     setLoading(false);
   };
 
-  return { reports, result, error, loading, handleCreateReport, getReports };
+  const handleEmptyReports = () => {
+    dispatch(emptyReports());
+  };
+
+  return {
+    reports,
+    result,
+    error,
+    loading,
+    handleCreateReport,
+    getReports,
+    handleEmptyReports
+  };
 };
 
 export default useReports;

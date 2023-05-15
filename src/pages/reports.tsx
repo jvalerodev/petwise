@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { HiPlus as AddIcon } from 'react-icons/hi';
 import Layout from '@/components/layout/Layout';
 import SEO from '@/components/SEO';
@@ -11,7 +11,11 @@ import useReports from '@/hooks/useReports';
 const Reports = () => {
   const [showModal, setShowModal] = useState(false);
 
-  const { reports, getReports } = useReports();
+  const { reports, getReports, handleEmptyReports } = useReports();
+
+  useEffect(() => {
+    handleEmptyReports();
+  }, []);
 
   const handleOnChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
     const petId = e.target.value;

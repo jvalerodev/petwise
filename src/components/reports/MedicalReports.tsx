@@ -6,6 +6,8 @@ interface Props {
 }
 
 const MedicalReports = ({ reports }: Props) => {
+  if (reports.length === 0) return null;
+
   return (
     <div className="py-10">
       <div className="md:col-span-2 grid gap-2 bg-white p-4 rounded-lg border shadow-sm">
