@@ -13,7 +13,7 @@ export interface PageTitle {
   '/pets': string;
   '/appointments': string;
   '/reports': string;
-  '/settings': string;
+  // '/settings': string;
 }
 
 export * from './users';

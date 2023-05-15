@@ -1,13 +1,19 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { HiPlus as AddIcon } from 'react-icons/hi';
 import Layout from '@/components/layout/Layout';
 import SEO from '@/components/SEO';
 import AppointmentList from '@/components/appointments/AppointmentList';
 import CreateAppointmentModal from '@/components/modals/Modal';
 import CreateAppointmentForm from '@/components/forms/CreateAppointment';
+import usePets from '@/hooks/usePets';
 
 const Appointments = () => {
   const [showModal, setShowModal] = useState(false);
+  const { getPets } = usePets();
+
+  useEffect(() => {
+    getPets();
+  }, []);
 
   return (
     <>

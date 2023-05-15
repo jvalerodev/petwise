@@ -5,8 +5,8 @@ export const Title: PageTitle = {
   '/owners': 'Propietarios',
   '/pets': 'Mascotas',
   '/appointments': 'Citas',
-  '/reports': 'Informes',
-  '/settings': 'Ajustes'
+  '/reports': 'Informes'
+  // '/settings': 'Ajustes'
 };
 
 export const API_ENDPOINTS = {

@@ -7,14 +7,17 @@ import MedicalReports from '@/components/reports/MedicalReports';
 import CreateReportModal from '@/components/modals/Modal';
 import CreateReportForm from '@/components/forms/CreateReport';
 import useReports from '@/hooks/useReports';
+import usePets from '@/hooks/usePets';
 
 const Reports = () => {
   const [showModal, setShowModal] = useState(false);
 
   const { reports, getReports, handleEmptyReports } = useReports();
+  const { getPets } = usePets();
 
   useEffect(() => {
     handleEmptyReports();
+    getPets();
   }, []);
 
   const handleOnChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {

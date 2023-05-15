@@ -63,7 +63,7 @@ const Sidebar = () => {
           </li>
         ))}
 
-        <li className="mt-2">
+        <li className="mt-9">
           <button
             onClick={handleLogout}
             className="flex w-full items-center space-x-4 text-white p-2 cursor-pointer hover:bg-teal-600 rounded-md duration-20"
