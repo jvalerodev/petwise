@@ -65,3 +65,10 @@ export const editAppointmentSchema = yup.object({
   reason: yup.string().required('Ingresa el motivo de la cita'),
   date: yup.string().required('Ingresa fecha de la cita')
 });
+
+export const createReportSchema = yup.object({
+  petId: yup.string().trim().required('Ingresa la mascota'),
+  diagnosis: yup.string().required('Ingresa el diagnóstico'),
+  treatment: yup.string().required('Ingresa el tratamiento'),
+  indications: yup.string().required('Ingresa las indicaciones')
+});

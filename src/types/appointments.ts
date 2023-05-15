@@ -1,3 +1,5 @@
+import { type AppointmentsState } from './types';
+
 export interface Appointment {
   id: string;
   date: string;
@@ -5,11 +7,6 @@ export interface Appointment {
   petName: string;
   ownerName: string;
   ownerLastName: string;
-}
-
-export interface AppointmentsState {
-  today: Appointment[];
-  future: Appointment[];
 }
 
 export interface CreateAppointmentFormValues {
@@ -24,5 +21,3 @@ export interface EditAppointmentFormValues {
 }
 
 export interface AppointmentsResponse extends AppointmentsState {}
-
-export interface SetAllAppointmentsAction extends AppointmentsState {}

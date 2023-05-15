@@ -2,7 +2,7 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import type {
   AppointmentsState,
   SetAllAppointmentsAction
-} from '@/types/appointments';
+} from '@/types/types';
 
 const initialState: AppointmentsState = {
   today: [],

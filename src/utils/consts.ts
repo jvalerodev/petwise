@@ -32,5 +32,11 @@ export const API_ENDPOINTS = {
   CREATE_APPOINTMENT: '/api/appointments/create',
   GET_APPOINTMENTS: '/api/appointments',
   UPDATE_APPOINTMENT: '/api/appointments/update',
-  DELETE_APPOINTMENT: '/api/appointments/delete'
+  DELETE_APPOINTMENT: '/api/appointments/delete',
+
+  // REPORTS
+  CREATE_REPORT: '/api/reports/create',
+  GET_REPORT: '/api/reports',
+  UPDATE_REPORT: '/api/reports/update',
+  DELETE_REPORT: '/api/reports/delete'
 };

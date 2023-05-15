@@ -3,7 +3,8 @@ import {
   userReducer,
   petsReducer,
   ownersReducer,
-  appointmentsReducer
+  appointmentsReducer,
+  reportsReducer
 } from './reducer';
 
 const store = configureStore({
@@ -11,7 +12,8 @@ const store = configureStore({
     user: userReducer,
     pets: petsReducer,
     owners: ownersReducer,
-    appointments: appointmentsReducer
+    appointments: appointmentsReducer,
+    reports: reportsReducer
   }
 });
 

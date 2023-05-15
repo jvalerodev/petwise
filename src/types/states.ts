@@ -1,4 +1,4 @@
-import type { User, Pet, Owner, AppointmentsState } from './types';
+import type { User, Pet, Owner, Appointment, Report } from './types';
 
 // USER
 export interface UserState {
@@ -45,6 +45,29 @@ export interface SelectOwners {
   owners: OwnersState;
 }
 
+// APPOINTMENTS
+export interface AppointmentsState {
+  today: Appointment[];
+  future: Appointment[];
+}
+
 export interface SelectAppointments {
   appointments: AppointmentsState;
+}
+
+export interface SetAllAppointmentsAction extends AppointmentsState {}
+
+// REPORTS
+export interface ReportsState {
+  reports: Report[];
+}
+
+export interface SelectReports {
+  reports: ReportsState;
+}
+
+export interface SetAllReportsAction extends ReportsState {}
+
+export interface AddReportAction {
+  report: Report;
 }

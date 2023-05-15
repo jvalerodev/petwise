@@ -1,9 +1,17 @@
 export interface Report {
   id: number;
-  pet: string;
-  owner: string;
+  petName: string;
+  ownerName: string;
+  ownerLastName: string;
   diagnosis: string;
   treatment: string;
-  comments: string;
+  indications: string;
   date: string;
+}
+
+export interface CreateReportFormValues {
+  petId: string;
+  diagnosis: string;
+  treatment: string;
+  indications: string;
 }
