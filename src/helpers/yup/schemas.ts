@@ -72,3 +72,9 @@ export const createReportSchema = yup.object({
   treatment: yup.string().required('Ingresa el tratamiento'),
   indications: yup.string().required('Ingresa las indicaciones')
 });
+
+export const editReportSchema = yup.object({
+  diagnosis: yup.string().required('Ingresa el diagnóstico'),
+  treatment: yup.string().required('Ingresa el tratamiento'),
+  indications: yup.string().required('Ingresa las indicaciones')
+});

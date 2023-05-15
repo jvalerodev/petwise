@@ -1,4 +1,7 @@
+import { useState } from 'react';
 import MedicalReport from './MedicalReport';
+import EditMedicalReportModal from '@/components/modals/Modal';
+import EditReportForm from '../forms/EditReport';
 import { type Report } from '@/types/types';
 
 interface Props {
@@ -6,6 +9,19 @@ interface Props {
 }
 
 const MedicalReports = ({ reports }: Props) => {
+  const [showModal, setShowModal] = useState(false);
+  const [reportEdit, setReportEdit] = useState<Report | null>(null);
+
+  const handleShowModal = (report: Report) => {
+    setReportEdit(report);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setReportEdit(null);
+    setShowModal(false);
+  };
+
   if (reports.length === 0) return null;
 
   return (
@@ -17,10 +33,18 @@ const MedicalReports = ({ reports }: Props) => {
 
         <ul className="grid md:grid-cols-3 gap-x-5 gap-y-8 py-5">
           {reports.map((report) => (
-            <MedicalReport key={report.id} report={report} />
+            <MedicalReport
+              key={report.id}
+              report={report}
+              handleShowModal={handleShowModal}
+            />
           ))}
         </ul>
       </div>
+
+      <EditMedicalReportModal isVisible={showModal} onClose={handleCloseModal}>
+        <EditReportForm report={reportEdit} />
+      </EditMedicalReportModal>
     </div>
   );
 };

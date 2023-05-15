@@ -7,9 +7,10 @@ import { type Report } from '@/types/types';
 
 interface Props {
   report: Report;
+  handleShowModal: (report: Report) => void;
 }
 
-const MedicalReport = ({ report }: Props) => {
+const MedicalReport = ({ report, handleShowModal }: Props) => {
   return (
     <li className="p-3 bg-gray-50 hover:bg-gray-100 rounded-lg shadow-sm">
       <div className="flex justify-between items-center">
@@ -51,7 +52,10 @@ const MedicalReport = ({ report }: Props) => {
 
         <div className="md:hidden xl:flex">
           <span className="flex justify-center space-x-3 text-lg text-gray-700">
-            <EditIcon className="cursor-pointer" />
+            <EditIcon
+              onClick={() => handleShowModal(report)}
+              className="cursor-pointer"
+            />
 
             <DeleteIcon className="cursor-pointer" />
           </span>

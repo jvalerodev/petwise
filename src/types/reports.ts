@@ -15,3 +15,9 @@ export interface CreateReportFormValues {
   treatment: string;
   indications: string;
 }
+
+export interface EditReportFormValues {
+  diagnosis: string;
+  treatment: string;
+  indications: string;
+}

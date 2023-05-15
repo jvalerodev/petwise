@@ -71,3 +71,5 @@ export interface SetAllReportsAction extends ReportsState {}
 export interface AddReportAction {
   report: Report;
 }
+
+export interface UpdateReportAction extends AddReportAction {}

@@ -2,7 +2,8 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import type {
   ReportsState,
   SetAllReportsAction,
-  AddReportAction
+  AddReportAction,
+  UpdateReportAction
 } from '@/types/types';
 
 const initialState: ReportsState = {
@@ -23,10 +24,21 @@ const reportsSlice = createSlice({
 
     emptyReports: (state) => {
       state.reports = [];
+    },
+
+    updateReport: (state, action: PayloadAction<UpdateReportAction>) => {
+      const { report: reportToUpdate } = action.payload;
+      const index = state.reports.findIndex(
+        (report) => (report.id = reportToUpdate.id)
+      );
+
+      if (index === -1) return;
+      state.reports[index] = reportToUpdate;
     }
   }
 });
 
-export const { setAllReports, addReport, emptyReports } = reportsSlice.actions;
+export const { setAllReports, addReport, emptyReports, updateReport } =
+  reportsSlice.actions;
 
 export default reportsSlice.reducer;

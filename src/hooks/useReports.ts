@@ -1,12 +1,18 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { type UseFormReset } from 'react-hook-form';
-import type { CreateReportFormValues, SelectReports } from '@/types/types';
+import type {
+  CreateReportFormValues,
+  EditReportFormValues,
+  Report,
+  SelectReports
+} from '@/types/types';
 import ReportService from '@/serivces/reports';
 import {
   addReport,
   setAllReports,
-  emptyReports
+  emptyReports,
+  updateReport
 } from '@/redux/reducer/reports';
 import { removeMessage } from '@/utils/functions';
 import { isAxiosError } from 'axios';
@@ -63,6 +69,34 @@ const useReports = (props: Props = {}) => {
     dispatch(emptyReports());
   };
 
+  const handleEditReport = async (
+    report: Report | null,
+    data: EditReportFormValues
+  ) => {
+    setLoading(true);
+
+    try {
+      const reportUpdated = await ReportService.update(report, data);
+      dispatch(updateReport({ report: reportUpdated }));
+      setResult('Informe actualizado existosamente');
+
+      reset?.(() => ({
+        diagnosis: '',
+        treatment: '',
+        indications: ''
+      }));
+
+      removeMessage(setResult);
+    } catch (error) {
+      if (isAxiosError(error)) {
+        setError(error.response?.data.error);
+        removeMessage(setError);
+      }
+    }
+
+    setLoading(false);
+  };
+
   return {
     reports,
     result,
@@ -70,7 +104,8 @@ const useReports = (props: Props = {}) => {
     loading,
     handleCreateReport,
     getReports,
-    handleEmptyReports
+    handleEmptyReports,
+    handleEditReport
   };
 };
 
