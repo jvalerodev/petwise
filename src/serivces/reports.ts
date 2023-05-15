@@ -26,6 +26,10 @@ const ReportService = {
     );
     const reportUpdated: Report = res.data.report;
     return reportUpdated;
+  },
+
+  delete: async (reportId: string) => {
+    await axiosClient.delete(`${API_ENDPOINTS.DELETE_REPORT}/${reportId}`);
   }
 };
 

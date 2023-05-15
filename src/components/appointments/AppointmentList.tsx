@@ -34,7 +34,6 @@ const AppointmentList = () => {
     const { isConfirmed } = await confirmationPopup(text);
 
     if (isConfirmed) {
-      console.log(appointmentId);
       await handleDeleteAppointment(appointmentId);
     }
   };

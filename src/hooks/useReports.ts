@@ -12,7 +12,8 @@ import {
   addReport,
   setAllReports,
   emptyReports,
-  updateReport
+  updateReport,
+  deleteReport
 } from '@/redux/reducer/reports';
 import { removeMessage } from '@/utils/functions';
 import { isAxiosError } from 'axios';
@@ -97,6 +98,19 @@ const useReports = (props: Props = {}) => {
     setLoading(false);
   };
 
+  const handleDeleteReport = async (reportId: string) => {
+    setLoading(true);
+
+    try {
+      await ReportService.delete(reportId);
+      dispatch(deleteReport({ id: reportId }));
+    } catch (error) {
+      console.log(error);
+    }
+
+    setLoading(false);
+  };
+
   return {
     reports,
     result,
@@ -105,7 +119,8 @@ const useReports = (props: Props = {}) => {
     handleCreateReport,
     getReports,
     handleEmptyReports,
-    handleEditReport
+    handleEditReport,
+    handleDeleteReport
   };
 };
 

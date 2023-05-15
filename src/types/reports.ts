@@ -1,5 +1,5 @@
 export interface Report {
-  id: number;
+  id: string;
   petName: string;
   ownerName: string;
   ownerLastName: string;

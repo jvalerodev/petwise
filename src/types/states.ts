@@ -73,3 +73,7 @@ export interface AddReportAction {
 }
 
 export interface UpdateReportAction extends AddReportAction {}
+
+export interface DeleteReportAction {
+  id: string;
+}

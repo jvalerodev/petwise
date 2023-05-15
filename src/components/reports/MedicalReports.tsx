@@ -3,6 +3,8 @@ import MedicalReport from './MedicalReport';
 import EditMedicalReportModal from '@/components/modals/Modal';
 import EditReportForm from '../forms/EditReport';
 import { type Report } from '@/types/types';
+import confirmationPopup from '@/components/alerts/ConfirmPopup';
+import useReports from '@/hooks/useReports';
 
 interface Props {
   reports: Report[];
@@ -12,6 +14,8 @@ const MedicalReports = ({ reports }: Props) => {
   const [showModal, setShowModal] = useState(false);
   const [reportEdit, setReportEdit] = useState<Report | null>(null);
 
+  const { handleDeleteReport } = useReports();
+
   const handleShowModal = (report: Report) => {
     setReportEdit(report);
     setShowModal(true);
@@ -20,6 +24,15 @@ const MedicalReports = ({ reports }: Props) => {
   const handleCloseModal = () => {
     setReportEdit(null);
     setShowModal(false);
+  };
+
+  const handleDeletePopup = async (reportId: string) => {
+    const text = '¿Estás seguro que deseas eliminar este informe?';
+    const { isConfirmed } = await confirmationPopup(text);
+
+    if (isConfirmed) {
+      await handleDeleteReport(reportId);
+    }
   };
 
   if (reports.length === 0) return null;
@@ -37,6 +50,7 @@ const MedicalReports = ({ reports }: Props) => {
               key={report.id}
               report={report}
               handleShowModal={handleShowModal}
+              handleDeletePopup={handleDeletePopup}
             />
           ))}
         </ul>

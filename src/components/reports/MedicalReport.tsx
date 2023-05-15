@@ -8,9 +8,14 @@ import { type Report } from '@/types/types';
 interface Props {
   report: Report;
   handleShowModal: (report: Report) => void;
+  handleDeletePopup: (appointmentId: string) => Promise<void>;
 }
 
-const MedicalReport = ({ report, handleShowModal }: Props) => {
+const MedicalReport = ({
+  report,
+  handleShowModal,
+  handleDeletePopup
+}: Props) => {
   return (
     <li className="p-3 bg-gray-50 hover:bg-gray-100 rounded-lg shadow-sm">
       <div className="flex justify-between items-center">
@@ -57,7 +62,10 @@ const MedicalReport = ({ report, handleShowModal }: Props) => {
               className="cursor-pointer"
             />
 
-            <DeleteIcon className="cursor-pointer" />
+            <DeleteIcon
+              onClick={async () => await handleDeletePopup(report.id)}
+              className="cursor-pointer"
+            />
           </span>
         </div>
       </div>

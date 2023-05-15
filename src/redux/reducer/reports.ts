@@ -3,7 +3,8 @@ import type {
   ReportsState,
   SetAllReportsAction,
   AddReportAction,
-  UpdateReportAction
+  UpdateReportAction,
+  DeleteReportAction
 } from '@/types/types';
 
 const initialState: ReportsState = {
@@ -34,11 +35,24 @@ const reportsSlice = createSlice({
 
       if (index === -1) return;
       state.reports[index] = reportToUpdate;
+    },
+
+    deleteReport: (state, action: PayloadAction<DeleteReportAction>) => {
+      const { id } = action.payload;
+      const index = state.reports.findIndex((report) => report.id === id);
+
+      if (index === -1) return;
+      state.reports.splice(index, 1);
     }
   }
 });
 
-export const { setAllReports, addReport, emptyReports, updateReport } =
-  reportsSlice.actions;
+export const {
+  setAllReports,
+  addReport,
+  emptyReports,
+  updateReport,
+  deleteReport
+} = reportsSlice.actions;
 
 export default reportsSlice.reducer;
